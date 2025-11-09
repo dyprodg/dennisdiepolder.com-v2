@@ -92,33 +92,19 @@ Update CSS variables in `src/pages/index.astro`:
 
 ## Deployment
 
-### Deploy to Vercel
+This site is deployed using **AWS Amplify**.
 
-```bash
-npm i -g vercel
-vercel
-```
+Amplify will automatically detect the build settings and deploy on every push to the main branch.
 
-### Deploy to Netlify
+### Manual Build
 
-```bash
-npm i -g netlify-cli
-netlify deploy
-```
-
-### Deploy to any static host
-
-Build the site and upload the `dist/` folder:
+Build the site locally:
 
 ```bash
 npm run build
 ```
 
-Compatible with:
-- GitHub Pages
-- Cloudflare Pages
-- AWS S3 + CloudFront
-- Any static hosting provider
+This creates a `dist/` folder with your static site.
 
 ## Project Structure
 
