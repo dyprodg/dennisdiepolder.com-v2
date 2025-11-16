@@ -195,7 +195,10 @@ import Parallax from '../components/Parallax.astro';
     object-fit: cover;
     border-radius: var(--border-radius-small);
     filter: grayscale(100%);
-    transition: all var(--transition-swift);
+    transition:
+      filter var(--duration-slow) var(--ease-swift-out),
+      transform var(--duration-slow) var(--ease-swift-out),
+      box-shadow var(--duration-slow) var(--ease-swift-out);
     border: var(--border-width-thin) solid var(--color-border);
   }
 
@@ -248,7 +251,12 @@ import Parallax from '../components/Parallax.astro';
     font-size: var(--font-size-16);
     text-decoration: none;
     border-radius: var(--border-radius-small);
-    transition: all var(--transition-default);
+    transition:
+      background var(--duration-normal) var(--ease-standard),
+      color var(--duration-normal) var(--ease-standard),
+      border-color var(--duration-normal) var(--ease-standard),
+      transform var(--duration-normal) var(--ease-standard),
+      box-shadow var(--duration-normal) var(--ease-standard);
     cursor: pointer;
     border: var(--border-width-medium) solid transparent;
     display: inline-block;
@@ -312,7 +320,10 @@ import Parallax from '../components/Parallax.astro';
     background: var(--color-grey-100);
     border: var(--border-width-thin) solid var(--color-border);
     border-radius: var(--border-radius-small);
-    transition: all var(--transition-swift);
+    transition:
+      transform var(--duration-slow) var(--ease-swift-out),
+      box-shadow var(--duration-slow) var(--ease-swift-out),
+      border-color var(--duration-slow) var(--ease-swift-out);
     position: relative;
   }
 
@@ -325,7 +336,7 @@ import Parallax from '../components/Parallax.astro';
     width: 0;
     height: var(--border-width-thick);
     background: var(--color-accent);
-    transition: width var(--transition-default);
+    transition: width var(--duration-slow) var(--ease-swift-out);
   }
 
   .card:hover::before {
@@ -343,7 +354,9 @@ import Parallax from '../components/Parallax.astro';
     height: 64px;
     margin-bottom: var(--space-3);
     color: var(--color-black);
-    transition: all var(--transition-default);
+    transition:
+      color var(--duration-slow) var(--ease-swift-out),
+      transform var(--duration-slow) var(--ease-swift-out);
   }
 
   .card-icon svg {
@@ -406,14 +419,18 @@ import Parallax from '../components/Parallax.astro';
     font-weight: var(--font-weight-semibold);
     text-decoration: none;
     border-radius: var(--border-radius-small);
-    transition: all var(--transition-default);
+    transition:
+      background var(--duration-normal) var(--ease-standard),
+      border-color var(--duration-normal) var(--ease-standard),
+      transform var(--duration-normal) var(--ease-standard),
+      box-shadow var(--duration-normal) var(--ease-standard);
     border: var(--border-width-medium) solid transparent;
   }
 
   .contact-btn .icon {
     width: 24px;
     height: 24px;
-    transition: transform var(--transition-default);
+    transition: transform var(--duration-normal) var(--ease-standard);
   }
 
   .email-btn {
