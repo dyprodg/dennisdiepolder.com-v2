@@ -3,8 +3,8 @@
  * Main Layout Component
  * Swiss Design System Integration
  */
-import SwissGridOverlay from '../components/SwissGridOverlay.astro';
 import SmoothScroll from '../components/SmoothScroll.astro';
+import DarkModeToggle from '../components/DarkModeToggle.astro';
 
 interface Props {
   title: string;
@@ -44,11 +44,11 @@ const {
       Skip to content
     </a>
 
+    <!-- Dark Mode Toggle -->
+    <DarkModeToggle />
+
     <!-- Main content -->
     <slot />
-
-    <!-- Swiss Grid Overlay (toggle with Ctrl+G) -->
-    <SwissGridOverlay />
 
     <!-- Lenis Smooth Scrolling -->
     <SmoothScroll />
