@@ -1,8 +1,8 @@
 # Project Progress Tracker
 
 **Last Updated:** 2025-11-16
-**Current Phase:** Phase 1 - Foundation (Complete!)
-**Overall Progress:** 25% (Swiss Design System Implemented)
+**Current Phase:** Phase 2 - Animations (Complete!)
+**Overall Progress:** 45% (Design System + GSAP Animations)
 
 ---
 
@@ -20,9 +20,9 @@ Transform dennisdiepolder.com from a static portfolio into an interactive platfo
 **Chosen Approach:** MVP (4-6 weeks) - Frontend-only
 
 **Priority Features:**
-1. ✅ Swiss design refresh (grid system, typography, colors)
-2. ✅ Animations (scroll reveals, kinetic typography, parallax)
-3. ✅ Code playground (Monaco editor, frontend execution)
+1. ✅ Swiss design refresh (grid system, typography, colors) - **COMPLETE**
+2. ✅ Animations (scroll reveals, kinetic typography, parallax) - **COMPLETE**
+3. ⏳ Code playground (Monaco editor, frontend execution) - **NEXT**
 
 **Confirmed:**
 - Frontend-only (no backend/infrastructure for now)
@@ -45,9 +45,10 @@ Transform dennisdiepolder.com from a static portfolio into an interactive platfo
 ## 🚧 In Progress
 
 **Current Task:** Ready for next session!
-- Phase 1 (Foundation) complete
-- Awaiting user to view the site and provide feedback
-- Next: Animations & kinetic typography (Feature #2)
+- Phase 1 (Foundation) ✅ Complete
+- Phase 2 (Animations) ✅ Complete
+- Awaiting user to view animations and provide feedback
+- Next: Code Playground (Feature #3)
 
 ---
 
@@ -92,10 +93,10 @@ Transform dennisdiepolder.com from a static portfolio into an interactive platfo
 
 | Feature | Complexity | Time | Backend Required | Priority | Status |
 |---------|-----------|------|------------------|----------|--------|
-| Swiss Grid System | Low | 1 week | No | **#1** | 🚧 In Progress |
-| Kinetic Typography | Medium | 1 week | No | **#2** | ⏳ Next |
-| Scroll Animations | Low | 1 week | No | **#2** | ⏳ Next |
-| Code Playground | Medium | 2 weeks | No (frontend only) | **#3** | ⏳ Queued |
+| Swiss Grid System | Low | 1 week | No | **#1** | ✅ Complete |
+| Kinetic Typography | Medium | 1 week | No | **#2** | ✅ Complete |
+| Scroll Animations | Low | 1 week | No | **#2** | ✅ Complete |
+| Code Playground | Medium | 2 weeks | No (frontend only) | **#3** | 🚧 Next |
 | Automation Playground | High | 3 weeks | Yes | ⏸️ Future | ⏸️ Deferred |
 | Performance Dashboard | Low | 1 week | Optional | ⏸️ Future | ⏸️ Deferred |
 
@@ -287,6 +288,49 @@ dennisdiepolder.com/
 ---
 
 ## 📝 Session Log
+
+### Session 2: 2025-11-16 (GSAP Animations & Kinetic Typography)
+**Participants:** User + Claude
+**Duration:** ~60 minutes
+**Accomplishments:**
+- Created comprehensive GSAP animation utilities library
+- Built KineticText component with character-level animations
+- Implemented ScrollReveal component for scroll-triggered effects
+- Created Parallax component for smooth scroll parallax
+- Updated index.astro with all new animation components
+- Cleaned up old JavaScript animation code
+- Removed CSS animation styles (now handled by GSAP)
+- Committed and pushed to GitHub (commit: 863c28c)
+
+**New Files Created:**
+- src/lib/animations.ts (10+ animation utility functions)
+- src/components/KineticText.astro
+- src/components/ScrollReveal.astro
+- src/components/Parallax.astro
+
+**Features Implemented:**
+- Character-by-character text reveals with 3D transforms
+- Scroll-triggered animations (fade, slide-up, slide-left, slide-right, scale, rotate)
+- Smooth parallax scrolling with GSAP scrubbing
+- Swiss easing curves matching design tokens
+- Reduced motion support for accessibility
+- Staggered card animations
+- Section title kinetic typography
+
+**Technical Details:**
+- GSAP + ScrollTrigger integration
+- Component-based animation architecture
+- Reusable animation utilities
+- Performance-optimized with will-change
+- Accessibility-first approach
+
+**Next Session Goals:**
+- Build Code Playground (Feature #3)
+- Monaco Editor integration
+- JavaScript/TypeScript execution
+- Syntax highlighting
+
+---
 
 ### Session 1: 2025-11-16 (Planning & Kickoff)
 **Participants:** User + Claude
