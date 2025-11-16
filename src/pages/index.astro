@@ -144,6 +144,207 @@ import Parallax from '../components/Parallax.astro';
         },
       });
     }
+
+    // GSAP hover animations for ultra-smooth effects
+
+    // Profile image hover
+    const profileImage = document.querySelector('.profile-image');
+    if (profileImage) {
+      profileImage.addEventListener('mouseenter', () => {
+        gsap.to(profileImage, {
+          filter: 'grayscale(0%)',
+          y: -5,
+          boxShadow: '0 20px 25px rgba(0, 0, 0, 0.15)',
+          duration: 1,
+          ease: 'power2.out',
+        });
+      });
+      profileImage.addEventListener('mouseleave', () => {
+        gsap.to(profileImage, {
+          filter: 'grayscale(100%)',
+          y: 0,
+          boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
+          duration: 1,
+          ease: 'power2.out',
+        });
+      });
+    }
+
+    // Card hover effects
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card) => {
+      const cardIcon = card.querySelector('.card-icon');
+      const redLine = card.querySelector('.card::before');
+
+      card.addEventListener('mouseenter', () => {
+        gsap.to(card, {
+          y: -8,
+          boxShadow: '0 10px 15px rgba(0, 0, 0, 0.1)',
+          borderColor: '#CCCCCC',
+          duration: 1,
+          ease: 'power2.out',
+        });
+
+        if (cardIcon) {
+          gsap.to(cardIcon, {
+            color: '#E4000F',
+            scale: 1.1,
+            duration: 1,
+            ease: 'power2.out',
+          });
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          y: 0,
+          boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
+          borderColor: '#E0E0E0',
+          duration: 1,
+          ease: 'power2.out',
+        });
+
+        if (cardIcon) {
+          gsap.to(cardIcon, {
+            color: '#000000',
+            scale: 1,
+            duration: 1,
+            ease: 'power2.out',
+          });
+        }
+      });
+    });
+
+    // Button hover effects
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach((btn) => {
+      const isPrimary = btn.classList.contains('btn-primary');
+
+      btn.addEventListener('mouseenter', () => {
+        if (isPrimary) {
+          gsap.to(btn, {
+            backgroundColor: '#E4000F',
+            borderColor: '#E4000F',
+            y: -2,
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.07)',
+            duration: 1,
+            ease: 'power2.out',
+          });
+        } else {
+          gsap.to(btn, {
+            backgroundColor: '#000000',
+            color: '#FFFFFF',
+            y: -2,
+            duration: 1,
+            ease: 'power2.out',
+          });
+        }
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        if (isPrimary) {
+          gsap.to(btn, {
+            backgroundColor: '#000000',
+            borderColor: '#000000',
+            y: 0,
+            boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
+            duration: 1,
+            ease: 'power2.out',
+          });
+        } else {
+          gsap.to(btn, {
+            backgroundColor: 'transparent',
+            color: '#000000',
+            y: 0,
+            duration: 1,
+            ease: 'power2.out',
+          });
+        }
+      });
+    });
+
+    // Contact button hover effects
+    const emailBtn = document.querySelector('.email-btn');
+    if (emailBtn) {
+      const icon = emailBtn.querySelector('.icon');
+
+      emailBtn.addEventListener('mouseenter', () => {
+        gsap.to(emailBtn, {
+          backgroundColor: '#E4000F',
+          borderColor: '#E4000F',
+          y: -3,
+          boxShadow: '0 10px 15px rgba(0, 0, 0, 0.1)',
+          duration: 1,
+          ease: 'power2.out',
+        });
+        if (icon) {
+          gsap.to(icon, {
+            y: -2,
+            duration: 1,
+            ease: 'power2.out',
+          });
+        }
+      });
+
+      emailBtn.addEventListener('mouseleave', () => {
+        gsap.to(emailBtn, {
+          backgroundColor: '#000000',
+          borderColor: '#000000',
+          y: 0,
+          boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
+          duration: 1,
+          ease: 'power2.out',
+        });
+        if (icon) {
+          gsap.to(icon, {
+            y: 0,
+            duration: 1,
+            ease: 'power2.out',
+          });
+        }
+      });
+    }
+
+    const linkedinBtn = document.querySelector('.linkedin-btn');
+    if (linkedinBtn) {
+      const icon = linkedinBtn.querySelector('.icon');
+
+      linkedinBtn.addEventListener('mouseenter', () => {
+        gsap.to(linkedinBtn, {
+          backgroundColor: '#005582',
+          y: -3,
+          boxShadow: '0 10px 25px rgba(0, 119, 181, 0.3)',
+          duration: 1,
+          ease: 'power2.out',
+        });
+        if (icon) {
+          gsap.to(icon, {
+            scale: 1.1,
+            duration: 1,
+            ease: 'power2.out',
+          });
+        }
+      });
+
+      linkedinBtn.addEventListener('mouseleave', () => {
+        gsap.to(linkedinBtn, {
+          backgroundColor: '#0077b5',
+          y: 0,
+          boxShadow: '0 0 0 rgba(0, 119, 181, 0)',
+          duration: 1,
+          ease: 'power2.out',
+        });
+        if (icon) {
+          gsap.to(icon, {
+            scale: 1,
+            duration: 1,
+            ease: 'power2.out',
+          });
+        }
+      });
+    }
+
+    console.log('✨ GSAP hover animations initialized');
   });
 </script>
 
@@ -195,18 +396,11 @@ import Parallax from '../components/Parallax.astro';
     object-fit: cover;
     border-radius: var(--border-radius-small);
     filter: grayscale(100%);
-    transition:
-      filter 1s var(--ease-swift-out),
-      transform 1s var(--ease-swift-out),
-      box-shadow 1s var(--ease-swift-out);
     border: var(--border-width-thin) solid var(--color-border);
+    /* GSAP handles hover animations */
   }
 
-  .profile-image:hover {
-    filter: grayscale(0%);
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xlarge);
-  }
+  /* Profile image hover handled by GSAP */
 
   .hero-text {
     animation: fadeInRight var(--duration-slow) var(--ease-swift-out) 0.3s both;
@@ -251,18 +445,13 @@ import Parallax from '../components/Parallax.astro';
     font-size: var(--font-size-16);
     text-decoration: none;
     border-radius: var(--border-radius-small);
-    transition:
-      background 1s var(--ease-standard),
-      color 1s var(--ease-standard),
-      border-color 1s var(--ease-standard),
-      transform 1s var(--ease-standard),
-      box-shadow 1s var(--ease-standard);
     cursor: pointer;
     border: var(--border-width-medium) solid transparent;
     display: inline-block;
     font-weight: var(--font-weight-semibold);
     position: relative;
     overflow: hidden;
+    /* GSAP handles hover animations */
   }
 
   .btn-primary {
@@ -271,24 +460,13 @@ import Parallax from '../components/Parallax.astro';
     border-color: var(--color-black);
   }
 
-  .btn-primary:hover {
-    background: var(--color-accent);
-    border-color: var(--color-accent);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-medium);
-  }
-
   .btn-secondary {
     background: transparent;
     color: var(--color-black);
     border-color: var(--color-black);
   }
 
-  .btn-secondary:hover {
-    background: var(--color-black);
-    color: var(--color-white);
-    transform: translateY(-2px);
-  }
+  /* Button hover handled by GSAP */
 
   /* ========================================
      ABOUT SECTION
@@ -320,11 +498,8 @@ import Parallax from '../components/Parallax.astro';
     background: var(--color-grey-100);
     border: var(--border-width-thin) solid var(--color-border);
     border-radius: var(--border-radius-small);
-    transition:
-      transform 1s var(--ease-swift-out),
-      box-shadow 1s var(--ease-swift-out),
-      border-color 1s var(--ease-swift-out);
     position: relative;
+    /* GSAP handles hover animations */
   }
 
   /* Red accent line (Swiss railway style) */
@@ -336,17 +511,7 @@ import Parallax from '../components/Parallax.astro';
     width: 0;
     height: var(--border-width-thick);
     background: var(--color-accent);
-    transition: width 1s var(--ease-swift-out);
-  }
-
-  .card:hover::before {
-    width: 100%;
-  }
-
-  .card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-large);
-    border-color: var(--color-grey-300);
+    /* GSAP handles animation */
   }
 
   .card-icon {
@@ -354,9 +519,7 @@ import Parallax from '../components/Parallax.astro';
     height: 64px;
     margin-bottom: var(--space-3);
     color: var(--color-black);
-    transition:
-      color 1s var(--ease-swift-out),
-      transform 1s var(--ease-swift-out);
+    /* GSAP handles hover animations */
   }
 
   .card-icon svg {
@@ -365,10 +528,7 @@ import Parallax from '../components/Parallax.astro';
     stroke-width: 1.5;
   }
 
-  .card:hover .card-icon {
-    color: var(--color-accent);
-    transform: scale(1.1);
-  }
+  /* Card hover effects handled by GSAP */
 
   .card h3 {
     font-size: var(--font-size-24);
@@ -419,18 +579,14 @@ import Parallax from '../components/Parallax.astro';
     font-weight: var(--font-weight-semibold);
     text-decoration: none;
     border-radius: var(--border-radius-small);
-    transition:
-      background 1s var(--ease-standard),
-      border-color 1s var(--ease-standard),
-      transform 1s var(--ease-standard),
-      box-shadow 1s var(--ease-standard);
     border: var(--border-width-medium) solid transparent;
+    /* GSAP handles hover animations */
   }
 
   .contact-btn .icon {
     width: 24px;
     height: 24px;
-    transition: transform 1s var(--ease-standard);
+    /* GSAP handles animations */
   }
 
   .email-btn {
@@ -439,32 +595,13 @@ import Parallax from '../components/Parallax.astro';
     border-color: var(--color-black);
   }
 
-  .email-btn:hover {
-    background: var(--color-accent);
-    border-color: var(--color-accent);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-large);
-  }
-
-  .email-btn:hover .icon {
-    transform: translateY(-2px);
-  }
-
   .linkedin-btn {
     background: #0077b5;
     color: var(--color-white);
     border-color: #0077b5;
   }
 
-  .linkedin-btn:hover {
-    background: #005582;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 119, 181, 0.3);
-  }
-
-  .linkedin-btn:hover .icon {
-    transform: scale(1.1);
-  }
+  /* Contact button hover effects handled by GSAP */
 
   /* ========================================
      KEYFRAME ANIMATIONS
