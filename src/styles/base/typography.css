@@ -1,0 +1,340 @@
+/**
+ * Swiss Design System - Typography
+ * Type scale based on 8px baseline grid
+ */
+
+/* ========================================
+   HEADING STYLES
+   ======================================== */
+
+.hero-title,
+.text-hero {
+  font-size: var(--font-size-hero);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h1,
+.h1,
+.text-h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h2,
+.h2,
+.text-h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h3,
+.h3,
+.text-h3 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+}
+
+h4,
+.h4,
+.text-h4 {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+}
+
+h5,
+.h5 {
+  font-size: var(--font-size-18);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+}
+
+h6,
+.h6 {
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* ========================================
+   BODY TEXT
+   ======================================== */
+
+.text-body-lg,
+.lead {
+  font-size: var(--font-size-20);
+  line-height: var(--line-height-relaxed);
+}
+
+.text-body,
+p {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-normal);
+}
+
+.text-small {
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-normal);
+}
+
+.text-caption,
+.caption {
+  font-size: var(--font-size-12);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-muted);
+}
+
+/* ========================================
+   FONT WEIGHTS
+   ======================================== */
+
+.font-regular {
+  font-weight: var(--font-weight-regular);
+}
+
+.font-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.font-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.font-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.font-black {
+  font-weight: var(--font-weight-black);
+}
+
+/* ========================================
+   TEXT COLORS
+   ======================================== */
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-subtle {
+  color: var(--color-text-subtle);
+}
+
+.text-white {
+  color: var(--color-white);
+}
+
+/* ========================================
+   TEXT ALIGNMENT
+   ======================================== */
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* ========================================
+   TEXT TRANSFORM
+   ======================================== */
+
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+/* ========================================
+   SWISS TYPOGRAPHY SPECIFICS
+   ======================================== */
+
+/* Section titles (all caps, spaced) */
+.section-title {
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  color: var(--color-text-muted);
+}
+
+/* Oversized numbers (Swiss style) */
+.oversized-number {
+  font-size: var(--font-size-96);
+  font-weight: var(--font-weight-black);
+  line-height: 1;
+  color: var(--color-grey-200);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tabular numbers (for data) */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Monospace code */
+.text-mono,
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+/* ========================================
+   KINETIC TYPOGRAPHY (Animation Ready)
+   ======================================== */
+
+.kinetic-text {
+  display: inline-block;
+}
+
+.kinetic-text .char {
+  display: inline-block;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+/* Text reveal (mask animation) */
+.text-reveal {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.text-reveal > span {
+  display: inline-block;
+  transform: translateY(100%);
+  transition: transform var(--transition-swift);
+}
+
+.text-reveal.revealed > span {
+  transform: translateY(0);
+}
+
+/* ========================================
+   LINK STYLES
+   ======================================== */
+
+a {
+  position: relative;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition-default);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* Underline on hover (Swiss style) */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: width var(--transition-default);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Inline link (underlined) */
+.link-inline {
+  border-bottom: 1px solid var(--color-grey-300);
+  transition: border-color var(--transition-default);
+}
+
+.link-inline:hover {
+  border-bottom-color: var(--color-accent);
+}
+
+/* ========================================
+   TEXT UTILITIES
+   ======================================== */
+
+/* Text overflow handling */
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-wrap {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+::-moz-selection {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* ========================================
+   RESPONSIVE TYPOGRAPHY
+   ======================================== */
+
+@media (max-width: 768px) {
+  .hero-title,
+  .text-hero {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+
+  h1,
+  .h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  h2,
+  .h2 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+  }
+}

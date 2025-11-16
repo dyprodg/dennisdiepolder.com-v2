@@ -1,44 +1,71 @@
 ---
+/**
+ * Main Layout Component
+ * Swiss Design System Integration
+ */
+import SwissGridOverlay from '../components/SwissGridOverlay.astro';
+
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "Dennis Diepolder - Frontend Engineer & Automation Specialist. Building digital experiences with Swiss precision."
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Dennis Diepolder - Performance Manager driving business success and client relations for Swiss hotline operations" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
+    <!-- Fonts: Inter Variable (all weights) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+
     <title>{title}</title>
   </head>
   <body>
+    <!-- Skip to content link (accessibility) -->
+    <a href="#main-content" class="skip-to-content">
+      Skip to content
+    </a>
+
+    <!-- Main content -->
     <slot />
+
+    <!-- Swiss Grid Overlay (toggle with Ctrl+G) -->
+    <SwissGridOverlay />
   </body>
 </html>
 
 <style is:global>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+  /* ========================================
+     SWISS DESIGN SYSTEM - GLOBAL STYLES
+     Import order matters!
+     ======================================== */
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  /* 1. Design Tokens (CSS Variables) */
+  @import '../styles/base/variables.css';
 
-  html {
-    scroll-behavior: smooth;
-  }
+  /* 2. CSS Reset */
+  @import '../styles/base/reset.css';
 
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #1a1a1a;
-    background: #ffffff;
-  }
+  /* 3. Typography */
+  @import '../styles/base/typography.css';
+
+  /* 4. Layout System */
+  @import '../styles/layout/grid.css';
 </style>

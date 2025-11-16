@@ -1,0 +1,245 @@
+/**
+ * Swiss Design System - Design Tokens
+ * Based on mathematical precision and 8px baseline grid
+ */
+
+:root {
+  /* ========================================
+     COLOR SYSTEM - Swiss Monochromatic Palette
+     ======================================== */
+
+  /* Primary Colors */
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+
+  /* Greyscale Palette (8 shades) */
+  --color-grey-900: #1A1A1A;  /* Off-black - primary surfaces */
+  --color-grey-800: #333333;  /* Dark grey - secondary text */
+  --color-grey-700: #4D4D4D;  /* Medium dark */
+  --color-grey-600: #666666;  /* Mid grey - body text */
+  --color-grey-500: #808080;  /* Neutral grey */
+  --color-grey-400: #999999;  /* Light grey - captions */
+  --color-grey-300: #CCCCCC;  /* Ghost grey - dividers */
+  --color-grey-200: #E0E0E0;  /* Border grey */
+  --color-grey-100: #F5F5F5;  /* Background */
+
+  /* Accent Colors */
+  --color-accent-red: #E4000F;    /* Swiss Railway Red - interactive */
+  --color-accent-red-dark: #B30000; /* Dark red hover */
+  --color-success: #00A651;       /* Success states */
+  --color-warning: #FF9500;       /* Warning states */
+  --color-error: #DC3545;         /* Error states */
+
+  /* Semantic Colors */
+  --color-primary: var(--color-black);
+  --color-secondary: var(--color-grey-800);
+  --color-accent: var(--color-accent-red);
+  --color-text: var(--color-grey-800);
+  --color-text-muted: var(--color-grey-600);
+  --color-text-subtle: var(--color-grey-400);
+  --color-background: var(--color-white);
+  --color-surface: var(--color-grey-100);
+  --color-border: var(--color-grey-200);
+  --color-divider: var(--color-grey-300);
+
+  /* ========================================
+     TYPOGRAPHY - 8px Baseline Grid
+     ======================================== */
+
+  /* Font Families */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Cascadia Code', 'Courier New', monospace;
+
+  /* Type Scale (Based on 8px baseline) */
+  --font-size-12: 0.75rem;   /* 12px - Captions, labels */
+  --font-size-14: 0.875rem;  /* 14px - Small text */
+  --font-size-16: 1rem;      /* 16px - Body text (base) */
+  --font-size-18: 1.125rem;  /* 18px - Body large */
+  --font-size-20: 1.25rem;   /* 20px - Lead text */
+  --font-size-24: 1.5rem;    /* 24px - H4 */
+  --font-size-32: 2rem;      /* 32px - H3 */
+  --font-size-48: 3rem;      /* 48px - H2 */
+  --font-size-72: 4.5rem;    /* 72px - H1 Large */
+  --font-size-96: 6rem;      /* 96px - Hero (desktop) */
+
+  /* Fluid Typography (clamp values) */
+  --font-size-hero: clamp(3rem, 5vw, 6rem);        /* 48px → 96px */
+  --font-size-h1: clamp(2.5rem, 4vw, 4.5rem);      /* 40px → 72px */
+  --font-size-h2: clamp(2rem, 3.5vw, 3rem);        /* 32px → 48px */
+  --font-size-h3: clamp(1.5rem, 2.5vw, 2rem);      /* 24px → 32px */
+  --font-size-h4: clamp(1.25rem, 2vw, 1.5rem);     /* 20px → 24px */
+  --font-size-body: clamp(0.875rem, 1.2vw, 1rem);  /* 14px → 16px */
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  /* Line Heights (Based on 8px baseline) */
+  --line-height-tight: 1.2;    /* Headings */
+  --line-height-normal: 1.5;   /* Body text */
+  --line-height-relaxed: 1.75; /* Long-form text */
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.02em;
+  --letter-spacing-wider: 0.05em;
+
+  /* ========================================
+     SPACING - 8px Baseline Grid
+     ======================================== */
+
+  --space-1: 0.5rem;   /* 8px */
+  --space-2: 1rem;     /* 16px */
+  --space-3: 1.5rem;   /* 24px */
+  --space-4: 2rem;     /* 32px */
+  --space-5: 2.5rem;   /* 40px */
+  --space-6: 3rem;     /* 48px */
+  --space-8: 4rem;     /* 64px */
+  --space-10: 5rem;    /* 80px */
+  --space-12: 6rem;    /* 96px */
+  --space-16: 8rem;    /* 128px */
+  --space-20: 10rem;   /* 160px */
+  --space-24: 12rem;   /* 192px */
+
+  /* Semantic Spacing */
+  --space-section: var(--space-20);      /* 160px - Between sections */
+  --space-component: var(--space-10);    /* 80px - Between components */
+  --space-element: var(--space-5);       /* 40px - Between elements */
+  --space-content: var(--space-3);       /* 24px - Content spacing */
+  --space-micro: var(--space-1);         /* 8px - Micro spacing */
+
+  /* ========================================
+     GRID SYSTEM - 12 Column Layout
+     ======================================== */
+
+  /* Desktop (1440px+) */
+  --grid-columns: 12;
+  --grid-gap: 1.5rem;          /* 24px */
+  --grid-gutter: 6rem;         /* 96px */
+  --grid-max-width: 1440px;
+
+  /* Tablet (768px - 1023px) */
+  --grid-columns-tablet: 6;
+  --grid-gap-tablet: 1rem;     /* 16px */
+  --grid-gutter-tablet: 3rem;  /* 48px */
+
+  /* Mobile (< 768px) */
+  --grid-columns-mobile: 2;
+  --grid-gap-mobile: 1rem;     /* 16px */
+  --grid-gutter-mobile: 1.5rem; /* 24px */
+
+  /* ========================================
+     BORDERS & RADII
+     ======================================== */
+
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 4px;
+
+  --border-radius-none: 0;
+  --border-radius-small: 2px;   /* Minimal, Swiss style */
+  --border-radius-medium: 4px;
+  --border-radius-large: 8px;
+
+  /* ========================================
+     SHADOWS & ELEVATION
+     ======================================== */
+
+  --shadow-none: none;
+  --shadow-small: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-large: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xlarge: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+  /* ========================================
+     ANIMATION & TRANSITIONS
+     ======================================== */
+
+  /* Durations */
+  --duration-instant: 0ms;
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 600ms;
+  --duration-slower: 900ms;
+
+  /* Easing Functions (Swiss precision) */
+  --ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1);      /* Material standard */
+  --ease-decelerate: cubic-bezier(0.0, 0.0, 0.2, 1);    /* Ease out */
+  --ease-accelerate: cubic-bezier(0.4, 0.0, 1, 1);      /* Ease in */
+  --ease-swift-out: cubic-bezier(0.16, 1, 0.3, 1);      /* Swift, smooth exit */
+  --ease-sharp: cubic-bezier(0.4, 0.0, 0.6, 1);         /* Sharp transition */
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bounce effect */
+
+  /* Default Transition */
+  --transition-default: var(--duration-normal) var(--ease-standard);
+  --transition-swift: var(--duration-slow) var(--ease-swift-out);
+
+  /* ========================================
+     Z-INDEX LAYERS
+     ======================================== */
+
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-overlay: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+  --z-grid-overlay: 9999;  /* Grid visualizer always on top */
+
+  /* ========================================
+     BREAKPOINTS (for JS usage)
+     ======================================== */
+
+  --breakpoint-mobile: 320px;
+  --breakpoint-mobile-lg: 640px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-tablet-lg: 968px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-desktop-lg: 1440px;
+  --breakpoint-wide: 1920px;
+
+  /* ========================================
+     PERFORMANCE OPTIMIZATIONS
+     ======================================== */
+
+  /* GPU-accelerated properties */
+  --transform-gpu: translateZ(0);
+  --will-change-transform: transform;
+  --will-change-opacity: opacity;
+}
+
+/* ========================================
+   DARK MODE SUPPORT (Future)
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Invert for dark mode */
+    --color-primary: var(--color-white);
+    --color-background: var(--color-grey-900);
+    --color-surface: var(--color-black);
+    --color-text: var(--color-grey-100);
+    --color-text-muted: var(--color-grey-400);
+    --color-border: var(--color-grey-800);
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY - Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant: 0ms;
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+    --duration-slow: 0ms;
+    --duration-slower: 0ms;
+  }
+}
