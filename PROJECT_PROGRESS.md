@@ -1,8 +1,8 @@
 # Project Progress Tracker
 
 **Last Updated:** 2025-11-16
-**Current Phase:** Phase 2 - Animations (Complete!)
-**Overall Progress:** 45% (Design System + GSAP Animations)
+**Current Phase:** Phase 2 - Animations (COMPLETE with Smooth Scrolling!)
+**Overall Progress:** 50% (Design System + GSAP Animations + Lenis Smooth Scrolling)
 
 ---
 
@@ -44,10 +44,11 @@ Transform dennisdiepolder.com from a static portfolio into an interactive platfo
 
 ## 🚧 In Progress
 
-**Current Task:** Ready for next session!
+**Current Task:** Ready for user testing!
 - Phase 1 (Foundation) ✅ Complete
-- Phase 2 (Animations) ✅ Complete
-- Awaiting user to view animations and provide feedback
+- Phase 2 (Animations) ✅ Complete with Lenis smooth scrolling!
+- **CRITICAL FIX APPLIED:** Animations now DRAMATICALLY slower and more visible
+- Awaiting user to test smooth scrolling and improved animations
 - Next: Code Playground (Feature #3)
 
 ---
@@ -106,7 +107,8 @@ Transform dennisdiepolder.com from a static portfolio into an interactive platfo
 
 ### Frontend
 - [x] Astro 5.15.4 (existing)
-- [ ] GSAP 3.12+ (to install)
+- [x] GSAP 3.13.0 (installed)
+- [x] Lenis 1.3.15 (smooth scrolling - installed)
 - [ ] D3 7.9+ (to install)
 - [ ] Monaco Editor (to install)
 - [ ] Vitest (testing - to install)
@@ -288,6 +290,61 @@ dennisdiepolder.com/
 ---
 
 ## 📝 Session Log
+
+### Session 3: 2025-11-16 (Lenis Smooth Scrolling & Animation Improvements)
+**Participants:** User + Claude
+**Duration:** ~30 minutes
+**User Feedback:** "there is like 0 animation timing. i want it all way smoother... i dont even notice kinetic typography"
+
+**Problem Identified:**
+- Animations were too fast (0.8s duration)
+- Movement distances too small (50px)
+- Kinetic typography not visible/noticeable
+- No smooth scrolling implementation
+
+**Solutions Implemented:**
+- ✅ Installed Lenis (v1.3.15) for buttery-smooth scrolling
+- ✅ Created SmoothScroll.astro component with GSAP ScrollTrigger integration
+- ✅ Completely rewrote KineticText.astro with DRAMATIC effects:
+  - Duration: 0.8s → 1.2s (50% slower)
+  - Movement: y: 50 → y: 100 (2x distance)
+  - Rotation: rotationX: -90 → rotationX: -120 (more dramatic)
+  - Added rotationZ: -15 for 3D effect
+  - Added scale: 0.5 (start smaller)
+  - Changed easing to 'back.out(1.4)' for bounce effect
+  - Slowed down stagger timing
+- ✅ Updated ScrollReveal.astro for more impact:
+  - Default duration: 0.8s → 1.2s
+  - Default distance: 50px → 100px
+  - Added scale effects to all animations
+  - Added 3D rotations to slide animations
+  - Changed easing to 'back.out(1.2)'
+- ✅ Increased delays in index.astro for better spacing
+- ✅ Integrated SmoothScroll component in Layout.astro
+
+**Technical Details:**
+- Lenis duration: 1.2s for smooth scrolling
+- Custom easing function for natural feel
+- GSAP ScrollTrigger integration with Lenis
+- Trigger animations earlier in viewport (75-80%)
+- All animations now "impossible to miss"
+
+**Files Modified:**
+- package.json, package-lock.json (Lenis dependency)
+- src/components/SmoothScroll.astro (NEW)
+- src/components/KineticText.astro (COMPLETE REWRITE)
+- src/components/ScrollReveal.astro (MAJOR UPDATE)
+- src/layouts/Layout.astro (added SmoothScroll)
+- src/pages/index.astro (increased delays)
+
+**Commit:** 95a58f4 - "Add Lenis smooth scrolling and dramatically improve animations"
+
+**Next Session Goals:**
+- User tests animations and smooth scrolling
+- Gather feedback on animation improvements
+- Build Code Playground (Feature #3) if animations approved
+
+---
 
 ### Session 2: 2025-11-16 (GSAP Animations & Kinetic Typography)
 **Participants:** User + Claude
