@@ -1,0 +1,82 @@
+---
+/**
+ * Lenis Smooth Scrolling Component
+ * Buttery-smooth scrolling experience
+ */
+---
+
+<script>
+  import Lenis from 'lenis';
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Initialize Lenis smooth scrolling
+  const lenis = new Lenis({
+    duration: 1.2,        // Slower, smoother scrolling
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing
+    orientation: 'vertical',
+    gestureOrientation: 'vertical',
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    smoothTouch: false,   // Disable on touch devices for better performance
+    touchMultiplier: 2,
+    infinite: false,
+  });
+
+  // Integrate Lenis with GSAP ScrollTrigger
+  lenis.on('scroll', ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+
+  gsap.ticker.lagSmoothing(0);
+
+  // Expose lenis globally for debugging
+  (window as any).lenis = lenis;
+
+  // Handle anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId !== '#') {
+        const target = document.querySelector(targetId);
+        if (target) {
+          lenis.scrollTo(target, {
+            offset: -100,
+            duration: 1.5,
+          });
+        }
+      }
+    });
+  });
+
+  console.log('✨ Lenis smooth scrolling initialized');
+</script>
+
+<style>
+  /* Lenis smooth scrolling requires html to have specific properties */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+</style>

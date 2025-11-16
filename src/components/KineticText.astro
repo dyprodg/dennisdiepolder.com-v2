@@ -1,7 +1,7 @@
 ---
 /**
  * Kinetic Typography Component
- * Text that fragments and animates on scroll
+ * DRAMATIC text animation that's impossible to miss
  */
 interface Props {
   text: string;
@@ -9,16 +9,14 @@ interface Props {
   class?: string;
   delay?: number;
   stagger?: number;
-  scramble?: boolean;
 }
 
 const {
   text,
   tag = 'h2',
   class: className = '',
-  delay = 0,
-  stagger = 0.05,
-  scramble = false,
+  delay = 0.3,           // Longer initial delay
+  stagger = 0.08,        // Slower stagger
 } = Astro.props;
 
 const Tag = tag;
@@ -31,7 +29,6 @@ const uniqueId = `kinetic-${Math.random().toString(36).substr(2, 9)}`;
   data-text={text}
   data-delay={delay}
   data-stagger={stagger}
-  data-scramble={scramble}
 >
   {text}
 </Tag>
@@ -47,11 +44,10 @@ const uniqueId = `kinetic-${Math.random().toString(36).substr(2, 9)}`;
 
     elements.forEach((el) => {
       const text = el.getAttribute('data-text') || el.textContent || '';
-      const delay = parseFloat(el.getAttribute('data-delay') || '0');
-      const stagger = parseFloat(el.getAttribute('data-stagger') || '0.05');
-      const scramble = el.getAttribute('data-scramble') === 'true';
+      const delay = parseFloat(el.getAttribute('data-delay') || '0.3');
+      const stagger = parseFloat(el.getAttribute('data-stagger') || '0.08');
 
-      // Split text into characters
+      // Split text into characters with individual spans
       el.innerHTML = text
         .split('')
         .map((char) => {
@@ -62,68 +58,46 @@ const uniqueId = `kinetic-${Math.random().toString(36).substr(2, 9)}`;
 
       const chars = el.querySelectorAll('.char');
 
-      // Scramble effect (optional)
-      if (scramble) {
-        const originalText = Array.from(chars).map((c) => c.textContent);
-        const scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*';
-
-        gsap.from(chars, {
-          duration: 0.05,
-          stagger: stagger / 2,
-          onStart: function () {
-            const char = this.targets()[0] as HTMLElement;
-            const originalChar = originalText[Array.from(chars).indexOf(char)];
-
-            // Scramble animation
-            const scrambleInterval = setInterval(() => {
-              if (char) {
-                char.textContent =
-                  scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
-              }
-            }, 50);
-
-            // Restore original after delay
-            setTimeout(() => {
-              clearInterval(scrambleInterval);
-              if (char) char.textContent = originalChar;
-            }, 300);
-          },
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-          },
-        });
-      }
-
-      // Main kinetic animation
+      // DRAMATIC kinetic animation - impossible to miss!
       gsap.from(chars, {
         opacity: 0,
-        y: 50,
-        rotationX: -90,
+        y: 100,                    // Come from much further down
+        rotationX: -120,           // More rotation
+        rotationZ: -15,            // Add z-axis rotation for more drama
+        scale: 0.5,                // Start smaller
         transformOrigin: '50% 50%',
-        duration: 0.8,
+        duration: 1.2,             // MUCH slower
         delay,
-        stagger,
-        ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        stagger: {
+          amount: stagger * (chars.length - 1), // Slower overall stagger
+          from: 'start',
+        },
+        ease: 'back.out(1.4)',     // Bounce effect
         scrollTrigger: {
           trigger: el,
-          start: 'top 80%',
+          start: 'top 75%',        // Trigger earlier
           toggleActions: 'play none none none',
+          markers: false,          // Set to true for debugging
         },
       });
     });
+
+    console.log('🎨 Kinetic typography initialized');
   }
 
-  // Initialize on DOMContentLoaded
+  // Initialize with a small delay to ensure DOM is ready
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initKineticText);
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(initKineticText, 100);
+    });
   } else {
-    initKineticText();
+    setTimeout(initKineticText, 100);
   }
 
-  // Re-initialize on navigation (for SPAs)
-  document.addEventListener('astro:page-load', initKineticText);
+  // Re-initialize on navigation
+  document.addEventListener('astro:page-load', () => {
+    setTimeout(initKineticText, 100);
+  });
 </script>
 
 <style>

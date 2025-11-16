@@ -1,7 +1,7 @@
 ---
 /**
  * Scroll Reveal Component
- * Wraps content with scroll-triggered animations
+ * SLOW and DRAMATIC scroll-triggered animations
  */
 interface Props {
   animation?: 'fade' | 'slide-up' | 'slide-left' | 'slide-right' | 'scale' | 'rotate';
@@ -14,8 +14,8 @@ interface Props {
 const {
   animation = 'fade',
   delay = 0,
-  duration = 0.8,
-  distance = 50,
+  duration = 1.2,        // Much slower default
+  distance = 100,        // More distance
   class: className = '',
 } = Astro.props;
 
@@ -45,35 +45,39 @@ const uniqueId = `scroll-reveal-${Math.random().toString(36).substr(2, 9)}`;
     elements.forEach((el) => {
       const animation = el.getAttribute('data-animation') || 'fade';
       const delay = parseFloat(el.getAttribute('data-delay') || '0');
-      const duration = parseFloat(el.getAttribute('data-duration') || '0.8');
-      const distance = parseFloat(el.getAttribute('data-distance') || '50');
+      const duration = parseFloat(el.getAttribute('data-duration') || '1.2');
+      const distance = parseFloat(el.getAttribute('data-distance') || '100');
 
-      // Animation configurations
+      // DRAMATIC animation configurations
       const animations: Record<string, any> = {
         fade: {
           opacity: 0,
           y: distance / 2,
+          scale: 0.95,        // Add subtle scale
         },
         'slide-up': {
           opacity: 0,
           y: distance,
+          scale: 0.9,         // Start smaller
         },
         'slide-left': {
           opacity: 0,
           x: -distance,
+          rotationY: -15,     // Add 3D rotation
         },
         'slide-right': {
           opacity: 0,
           x: distance,
+          rotationY: 15,      // Add 3D rotation
         },
         scale: {
           opacity: 0,
-          scale: 0.8,
+          scale: 0.7,         // Start much smaller
         },
         rotate: {
           opacity: 0,
           rotation: 180,
-          scale: 0.5,
+          scale: 0.3,         // Start tiny
         },
       };
 
@@ -83,14 +87,17 @@ const uniqueId = `scroll-reveal-${Math.random().toString(36).substr(2, 9)}`;
         ...fromVars,
         duration,
         delay,
-        ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        ease: 'back.out(1.2)',    // Bouncy easing
         scrollTrigger: {
           trigger: el,
-          start: 'top 85%',
+          start: 'top 80%',        // Trigger earlier
           toggleActions: 'play none none none',
+          markers: false,          // Set to true for debugging
         },
       });
     });
+
+    console.log('🎬 Scroll reveals initialized');
   }
 
   // Initialize on DOMContentLoaded

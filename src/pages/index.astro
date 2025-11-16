@@ -39,9 +39,9 @@ import Parallax from '../components/Parallax.astro';
     <!-- About Section -->
     <section id="about" class="about">
       <div class="container">
-        <KineticText text="What I Do" tag="h2" class="section-title" />
+        <KineticText text="What I Do" tag="h2" class="section-title" delay={0.5} />
         <div class="cards-grid">
-          <ScrollReveal animation="slide-up" delay={0.1}>
+          <ScrollReveal animation="slide-up" delay={0.2} duration={1.4}>
           <div class="card">
             <div class="card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -55,7 +55,7 @@ import Parallax from '../components/Parallax.astro';
             <p>Driving business targets and KPI achievement for a Swiss hotline operation with strategic planning and data-driven decisions.</p>
           </div>
           </ScrollReveal>
-          <ScrollReveal animation="slide-up" delay={0.3}>
+          <ScrollReveal animation="slide-up" delay={0.5} duration={1.4}>
           <div class="card">
             <div class="card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -69,7 +69,7 @@ import Parallax from '../components/Parallax.astro';
             <p>Managing stakeholder communication and ensuring client satisfaction through transparent reporting and proactive problem-solving.</p>
           </div>
           </ScrollReveal>
-          <ScrollReveal animation="slide-up" delay={0.5}>
+          <ScrollReveal animation="slide-up" delay={0.8} duration={1.4}>
           <div class="card">
             <div class="card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -91,13 +91,13 @@ import Parallax from '../components/Parallax.astro';
     <!-- Contact Section -->
     <section id="contact" class="contact">
       <div class="container">
-        <KineticText text="Let's Connect" tag="h2" class="section-title" />
-        <ScrollReveal animation="fade" delay={0.2}>
+        <KineticText text="Let's Connect" tag="h2" class="section-title" delay={0.5} />
+        <ScrollReveal animation="fade" delay={0.4} duration={1.2}>
         <p class="contact-description">
           Interested in collaboration or just want to chat about tech? Let's get in touch.
         </p>
         </ScrollReveal>
-        <ScrollReveal animation="fade" delay={0.4}>
+        <ScrollReveal animation="fade" delay={0.7} duration={1.2}>
         <div class="contact-buttons">
           <a href="mailto:info@dennisdiepolder.com" class="contact-btn email-btn">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
