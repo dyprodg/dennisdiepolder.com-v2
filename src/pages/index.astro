@@ -196,9 +196,9 @@ import Parallax from '../components/Parallax.astro';
     border-radius: var(--border-radius-small);
     filter: grayscale(100%);
     transition:
-      filter var(--duration-slow) var(--ease-swift-out),
-      transform var(--duration-slow) var(--ease-swift-out),
-      box-shadow var(--duration-slow) var(--ease-swift-out);
+      filter 1s var(--ease-swift-out),
+      transform 1s var(--ease-swift-out),
+      box-shadow 1s var(--ease-swift-out);
     border: var(--border-width-thin) solid var(--color-border);
   }
 
@@ -252,11 +252,11 @@ import Parallax from '../components/Parallax.astro';
     text-decoration: none;
     border-radius: var(--border-radius-small);
     transition:
-      background var(--duration-normal) var(--ease-standard),
-      color var(--duration-normal) var(--ease-standard),
-      border-color var(--duration-normal) var(--ease-standard),
-      transform var(--duration-normal) var(--ease-standard),
-      box-shadow var(--duration-normal) var(--ease-standard);
+      background 1s var(--ease-standard),
+      color 1s var(--ease-standard),
+      border-color 1s var(--ease-standard),
+      transform 1s var(--ease-standard),
+      box-shadow 1s var(--ease-standard);
     cursor: pointer;
     border: var(--border-width-medium) solid transparent;
     display: inline-block;
@@ -321,9 +321,9 @@ import Parallax from '../components/Parallax.astro';
     border: var(--border-width-thin) solid var(--color-border);
     border-radius: var(--border-radius-small);
     transition:
-      transform var(--duration-slow) var(--ease-swift-out),
-      box-shadow var(--duration-slow) var(--ease-swift-out),
-      border-color var(--duration-slow) var(--ease-swift-out);
+      transform 1s var(--ease-swift-out),
+      box-shadow 1s var(--ease-swift-out),
+      border-color 1s var(--ease-swift-out);
     position: relative;
   }
 
@@ -336,7 +336,7 @@ import Parallax from '../components/Parallax.astro';
     width: 0;
     height: var(--border-width-thick);
     background: var(--color-accent);
-    transition: width var(--duration-slow) var(--ease-swift-out);
+    transition: width 1s var(--ease-swift-out);
   }
 
   .card:hover::before {
@@ -355,8 +355,8 @@ import Parallax from '../components/Parallax.astro';
     margin-bottom: var(--space-3);
     color: var(--color-black);
     transition:
-      color var(--duration-slow) var(--ease-swift-out),
-      transform var(--duration-slow) var(--ease-swift-out);
+      color 1s var(--ease-swift-out),
+      transform 1s var(--ease-swift-out);
   }
 
   .card-icon svg {
@@ -420,17 +420,17 @@ import Parallax from '../components/Parallax.astro';
     text-decoration: none;
     border-radius: var(--border-radius-small);
     transition:
-      background var(--duration-normal) var(--ease-standard),
-      border-color var(--duration-normal) var(--ease-standard),
-      transform var(--duration-normal) var(--ease-standard),
-      box-shadow var(--duration-normal) var(--ease-standard);
+      background 1s var(--ease-standard),
+      border-color 1s var(--ease-standard),
+      transform 1s var(--ease-standard),
+      box-shadow 1s var(--ease-standard);
     border: var(--border-width-medium) solid transparent;
   }
 
   .contact-btn .icon {
     width: 24px;
     height: 24px;
-    transition: transform var(--duration-normal) var(--ease-standard);
+    transition: transform 1s var(--ease-standard);
   }
 
   .email-btn {
