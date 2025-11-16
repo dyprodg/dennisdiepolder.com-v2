@@ -1,8 +1,8 @@
 # Project Progress Tracker
 
 **Last Updated:** 2025-11-16
-**Current Phase:** Phase 2 - Animations (COMPLETE with Smooth Scrolling!)
-**Overall Progress:** 50% (Design System + GSAP Animations + Lenis Smooth Scrolling)
+**Current Phase:** Phase 2 - Animations (COMPLETE!)
+**Overall Progress:** 55% (Design System + GSAP Animations + Lenis + GSAP Hover Effects)
 
 ---
 
@@ -44,11 +44,13 @@ Transform dennisdiepolder.com from a static portfolio into an interactive platfo
 
 ## 🚧 In Progress
 
-**Current Task:** Ready for user testing!
+**Current Task:** Phase 2 Complete - Ready for Code Playground!
 - Phase 1 (Foundation) ✅ Complete
-- Phase 2 (Animations) ✅ Complete with Lenis smooth scrolling!
-- **CRITICAL FIX APPLIED:** Animations now DRAMATICALLY slower and more visible
-- Awaiting user to test smooth scrolling and improved animations
+- Phase 2 (Animations) ✅ Complete with all improvements!
+  - Lenis smooth scrolling integrated
+  - GSAP hover animations (1s duration)
+  - Dramatic kinetic typography
+  - Scroll reveals with bounce effects
 - Next: Code Playground (Feature #3)
 
 ---
@@ -290,6 +292,51 @@ dennisdiepolder.com/
 ---
 
 ## 📝 Session Log
+
+### Session 4: 2025-11-16 (GSAP Hover Effects - Ultra Smooth Interactions)
+**Participants:** User + Claude
+**Duration:** ~45 minutes
+**User Feedback:** "every hover effect still feels instant... is there maybe a problem because of gsap or lenis?"
+
+**Problem Identified:**
+- CSS transitions felt instant despite 1s duration
+- CSS transitions can conflict with GSAP and Lenis
+- Browser optimization sometimes skips CSS transitions
+- Inconsistent behavior across different elements
+
+**Solutions Implemented:**
+- ✅ Replaced ALL CSS transitions with GSAP animations
+- ✅ Profile image: GSAP hover (grayscale, lift, shadow) - 1s duration
+- ✅ Buttons: GSAP hover (background, color, border, lift) - 1s duration
+- ✅ Cards: GSAP hover (lift, shadow, border, icon animations) - 1s duration
+- ✅ Card icons: GSAP color and scale animations - 1s duration
+- ✅ Contact buttons: GSAP hover with icon animations - 1s duration
+- ✅ Removed all CSS transition properties
+- ✅ Removed all :hover pseudo-class CSS rules
+
+**Technical Details:**
+- All hover effects use mouseenter/mouseleave event listeners
+- GSAP power2.out easing for smooth, natural motion
+- 1-second duration on every single animation
+- No conflicts with Lenis smooth scrolling
+- Better cross-browser consistency
+- Improved performance with GSAP's animation engine
+
+**Files Modified:**
+- src/pages/index.astro (added 200+ lines of GSAP hover code, removed CSS transitions)
+
+**Commits:**
+- 593ca8c - "Make all hover effects smooth with explicit transitions"
+- 7a08b33 - "Increase all hover transition durations to 1 second"
+- 3e7ca7c - "Replace CSS transitions with GSAP hover animations"
+
+**Result:**
+- Hover effects now visibly smooth and take full 1 second
+- No more instant-feeling transitions
+- Buttery-smooth interactions that match Lenis scrolling
+- User confirmed: "perfect"
+
+---
 
 ### Session 3: 2025-11-16 (Lenis Smooth Scrolling & Animation Improvements)
 **Participants:** User + Claude
