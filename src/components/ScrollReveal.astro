@@ -1,0 +1,120 @@
+---
+/**
+ * Scroll Reveal Component
+ * Wraps content with scroll-triggered animations
+ */
+interface Props {
+  animation?: 'fade' | 'slide-up' | 'slide-left' | 'slide-right' | 'scale' | 'rotate';
+  delay?: number;
+  duration?: number;
+  distance?: number;
+  class?: string;
+}
+
+const {
+  animation = 'fade',
+  delay = 0,
+  duration = 0.8,
+  distance = 50,
+  class: className = '',
+} = Astro.props;
+
+const uniqueId = `scroll-reveal-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div
+  id={uniqueId}
+  class:list={['scroll-reveal', `scroll-reveal-${animation}`, className]}
+  data-animation={animation}
+  data-delay={delay}
+  data-duration={duration}
+  data-distance={distance}
+>
+  <slot />
+</div>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initScrollReveal() {
+    const elements = document.querySelectorAll('.scroll-reveal');
+
+    elements.forEach((el) => {
+      const animation = el.getAttribute('data-animation') || 'fade';
+      const delay = parseFloat(el.getAttribute('data-delay') || '0');
+      const duration = parseFloat(el.getAttribute('data-duration') || '0.8');
+      const distance = parseFloat(el.getAttribute('data-distance') || '50');
+
+      // Animation configurations
+      const animations: Record<string, any> = {
+        fade: {
+          opacity: 0,
+          y: distance / 2,
+        },
+        'slide-up': {
+          opacity: 0,
+          y: distance,
+        },
+        'slide-left': {
+          opacity: 0,
+          x: -distance,
+        },
+        'slide-right': {
+          opacity: 0,
+          x: distance,
+        },
+        scale: {
+          opacity: 0,
+          scale: 0.8,
+        },
+        rotate: {
+          opacity: 0,
+          rotation: 180,
+          scale: 0.5,
+        },
+      };
+
+      const fromVars = animations[animation] || animations.fade;
+
+      gsap.from(el, {
+        ...fromVars,
+        duration,
+        delay,
+        ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      });
+    });
+  }
+
+  // Initialize on DOMContentLoaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollReveal);
+  } else {
+    initScrollReveal();
+  }
+
+  // Re-initialize on navigation
+  document.addEventListener('astro:page-load', initScrollReveal);
+</script>
+
+<style>
+  .scroll-reveal {
+    will-change: transform, opacity;
+  }
+
+  /* Accessibility: Reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+      animation: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+    }
+  }
+</style>

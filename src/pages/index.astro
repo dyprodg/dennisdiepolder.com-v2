@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import KineticText from '../components/KineticText.astro';
+import ScrollReveal from '../components/ScrollReveal.astro';
+import Parallax from '../components/Parallax.astro';
 ---
 
 <Layout title="Dennis Diepolder - Frontend & Automation">
@@ -36,9 +39,10 @@ import Layout from '../layouts/Layout.astro';
     <!-- About Section -->
     <section id="about" class="about">
       <div class="container">
-        <h2 class="section-title">What I Do</h2>
+        <KineticText text="What I Do" tag="h2" class="section-title" />
         <div class="cards-grid">
-          <div class="card" data-scroll-animate>
+          <ScrollReveal animation="slide-up" delay={0.1}>
+          <div class="card">
             <div class="card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M3 3v18h18"/>
@@ -50,7 +54,9 @@ import Layout from '../layouts/Layout.astro';
             <h3>Performance Management</h3>
             <p>Driving business targets and KPI achievement for a Swiss hotline operation with strategic planning and data-driven decisions.</p>
           </div>
-          <div class="card" data-scroll-animate>
+          </ScrollReveal>
+          <ScrollReveal animation="slide-up" delay={0.3}>
+          <div class="card">
             <div class="card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -62,7 +68,9 @@ import Layout from '../layouts/Layout.astro';
             <h3>Client Relations</h3>
             <p>Managing stakeholder communication and ensuring client satisfaction through transparent reporting and proactive problem-solving.</p>
           </div>
-          <div class="card" data-scroll-animate>
+          </ScrollReveal>
+          <ScrollReveal animation="slide-up" delay={0.5}>
+          <div class="card">
             <div class="card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="2" y="3" width="20" height="14" rx="2"/>
@@ -75,6 +83,7 @@ import Layout from '../layouts/Layout.astro';
             <h3>Tech & Automation</h3>
             <p>Leveraging AI and modern technology to optimize workflows, enhance productivity, and achieve operational excellence.</p>
           </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
@@ -82,11 +91,14 @@ import Layout from '../layouts/Layout.astro';
     <!-- Contact Section -->
     <section id="contact" class="contact">
       <div class="container">
-        <h2 class="section-title">Let's Connect</h2>
-        <p class="contact-description" data-scroll-animate>
+        <KineticText text="Let's Connect" tag="h2" class="section-title" />
+        <ScrollReveal animation="fade" delay={0.2}>
+        <p class="contact-description">
           Interested in collaboration or just want to chat about tech? Let's get in touch.
         </p>
-        <div class="contact-buttons" data-scroll-animate>
+        </ScrollReveal>
+        <ScrollReveal animation="fade" delay={0.4}>
+        <div class="contact-buttons">
           <a href="mailto:info@dennisdiepolder.com" class="contact-btn email-btn">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -101,55 +113,37 @@ import Layout from '../layouts/Layout.astro';
             <span>LinkedIn</span>
           </a>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   </main>
 </Layout>
 
 <script>
-  // Intersection Observer for scroll-based animations
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-  };
+  // GSAP animations are now handled by components
+  // This script is for any additional page-specific interactions
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-in');
-      }
-    });
-  }, observerOptions);
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-  // Observe all elements with data-scroll-animate
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Smooth parallax for hero section
   document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('[data-scroll-animate]');
-    animateElements.forEach(el => observer.observe(el));
+    const heroContent = document.querySelector('.hero-content');
 
-    // Add parallax effect to hero section
-    const hero = document.querySelector('.hero');
-    if (hero) {
-      window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const heroContent = document.querySelector('.hero-content') as HTMLElement;
-        if (heroContent && scrolled < window.innerHeight) {
-          heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-          heroContent.style.opacity = `${1 - scrolled / 700}`;
-        }
+    if (heroContent) {
+      gsap.to(heroContent, {
+        y: () => window.innerHeight * 0.3,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
       });
     }
-
-    // Smooth reveal for section titles
-    const sectionTitles = document.querySelectorAll('.section-title');
-    const titleObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('title-reveal');
-        }
-      });
-    }, { threshold: 0.5 });
-
-    sectionTitles.forEach(title => titleObserver.observe(title));
   });
 </script>
 
@@ -304,14 +298,6 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: var(--space-component);
     color: var(--color-black);
     letter-spacing: var(--letter-spacing-tight);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all var(--transition-swift);
-  }
-
-  .section-title.title-reveal {
-    opacity: 1;
-    transform: translateY(0);
   }
 
   .cards-grid {
@@ -327,8 +313,6 @@ import Layout from '../layouts/Layout.astro';
     border: var(--border-width-thin) solid var(--color-border);
     border-radius: var(--border-radius-small);
     transition: all var(--transition-swift);
-    opacity: 0;
-    transform: translateY(50px);
     position: relative;
   }
 
@@ -346,22 +330,6 @@ import Layout from '../layouts/Layout.astro';
 
   .card:hover::before {
     width: 100%;
-  }
-
-  .card.animate-in {
-    animation: slideInUp var(--duration-slow) var(--ease-swift-out) forwards;
-  }
-
-  .card:nth-child(1).animate-in {
-    animation-delay: 0.1s;
-  }
-
-  .card:nth-child(2).animate-in {
-    animation-delay: 0.3s;
-  }
-
-  .card:nth-child(3).animate-in {
-    animation-delay: 0.5s;
   }
 
   .card:hover {
@@ -419,14 +387,6 @@ import Layout from '../layouts/Layout.astro';
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all var(--transition-slow);
-  }
-
-  .contact-description.animate-in {
-    opacity: 1;
-    transform: translateY(0);
   }
 
   .contact-buttons {
@@ -435,14 +395,6 @@ import Layout from '../layouts/Layout.astro';
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all var(--transition-slow) 0.2s;
-  }
-
-  .contact-buttons.animate-in {
-    opacity: 1;
-    transform: translateY(0);
   }
 
   .contact-btn {

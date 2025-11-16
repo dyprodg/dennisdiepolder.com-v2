@@ -1,0 +1,148 @@
+---
+/**
+ * Kinetic Typography Component
+ * Text that fragments and animates on scroll
+ */
+interface Props {
+  text: string;
+  tag?: 'h1' | 'h2' | 'h3' | 'p' | 'span';
+  class?: string;
+  delay?: number;
+  stagger?: number;
+  scramble?: boolean;
+}
+
+const {
+  text,
+  tag = 'h2',
+  class: className = '',
+  delay = 0,
+  stagger = 0.05,
+  scramble = false,
+} = Astro.props;
+
+const Tag = tag;
+const uniqueId = `kinetic-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<Tag
+  id={uniqueId}
+  class:list={['kinetic-text', className]}
+  data-text={text}
+  data-delay={delay}
+  data-stagger={stagger}
+  data-scramble={scramble}
+>
+  {text}
+</Tag>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initKineticText() {
+    const elements = document.querySelectorAll('.kinetic-text');
+
+    elements.forEach((el) => {
+      const text = el.getAttribute('data-text') || el.textContent || '';
+      const delay = parseFloat(el.getAttribute('data-delay') || '0');
+      const stagger = parseFloat(el.getAttribute('data-stagger') || '0.05');
+      const scramble = el.getAttribute('data-scramble') === 'true';
+
+      // Split text into characters
+      el.innerHTML = text
+        .split('')
+        .map((char) => {
+          if (char === ' ') return '<span class="char">&nbsp;</span>';
+          return `<span class="char">${char}</span>`;
+        })
+        .join('');
+
+      const chars = el.querySelectorAll('.char');
+
+      // Scramble effect (optional)
+      if (scramble) {
+        const originalText = Array.from(chars).map((c) => c.textContent);
+        const scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*';
+
+        gsap.from(chars, {
+          duration: 0.05,
+          stagger: stagger / 2,
+          onStart: function () {
+            const char = this.targets()[0] as HTMLElement;
+            const originalChar = originalText[Array.from(chars).indexOf(char)];
+
+            // Scramble animation
+            const scrambleInterval = setInterval(() => {
+              if (char) {
+                char.textContent =
+                  scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+              }
+            }, 50);
+
+            // Restore original after delay
+            setTimeout(() => {
+              clearInterval(scrambleInterval);
+              if (char) char.textContent = originalChar;
+            }, 300);
+          },
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+        });
+      }
+
+      // Main kinetic animation
+      gsap.from(chars, {
+        opacity: 0,
+        y: 50,
+        rotationX: -90,
+        transformOrigin: '50% 50%',
+        duration: 0.8,
+        delay,
+        stagger,
+        ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        },
+      });
+    });
+  }
+
+  // Initialize on DOMContentLoaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initKineticText);
+  } else {
+    initKineticText();
+  }
+
+  // Re-initialize on navigation (for SPAs)
+  document.addEventListener('astro:page-load', initKineticText);
+</script>
+
+<style>
+  .kinetic-text {
+    display: inline-block;
+    perspective: 1000px;
+  }
+
+  .kinetic-text :global(.char) {
+    display: inline-block;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
+  }
+
+  /* Accessibility: Reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .kinetic-text :global(.char) {
+      animation: none !important;
+      transform: none !important;
+    }
+  }
+</style>
