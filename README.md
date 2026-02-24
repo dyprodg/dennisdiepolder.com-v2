@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# dennisdiepolder.com
+
+Personal portfolio site for Dennis Diepolder — Software & Platform Engineer.
+
+## Tech Stack
+
+- **Next.js 16** (App Router)
+- **next-intl** — i18n with DE/EN locale routing
+- **Tailwind CSS v4** — utility-first styling
+- **next-themes** — dark/light mode (dark default)
+- **Lucide React** — icons
+- **TypeScript**
+
+## Features
+
+- Single-page portfolio with 7 sections (Hero, What I Do, Projects, Skills, Background, Blog, Contact)
+- Full i18n support (German / English) with locale prefix routing
+- Dark mode default with light mode toggle
+- 4 blog posts with dedicated pages
+- GitHub contribution chart embed
+- Mobile-first responsive design with monospace accent font (Geist Mono)
+- SEO: OpenGraph, Twitter cards, JSON-LD structured data, sitemap.xml, robots.txt, hreflang alternates
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── layout.tsx                 # Root layout
+│   ├── globals.css                # Tailwind config + theme
+│   ├── sitemap.ts                 # Dynamic sitemap generation
+│   └── [locale]/
+│       ├── layout.tsx             # Locale layout (fonts, providers, SEO)
+│       ├── page.tsx               # Homepage (all sections)
+│       └── blog/
+│           ├── page.tsx           # Blog index
+│           └── [slug]/page.tsx    # Blog post pages
+├── components/                    # All UI components
+├── i18n/                          # Routing, request config, navigation
+└── middleware.ts                  # Locale detection + redirect
+messages/
+├── en.json                        # English copy + blog content
+└── de.json                        # German copy + blog content
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+Hosted on AWS Amplify with Route53 DNS. Subdomains (`monti.`, `monti-grafana.`, etc.) are handled independently via Route53 records.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start dev server |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
