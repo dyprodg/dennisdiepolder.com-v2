@@ -1,5 +1,4 @@
-import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -15,26 +14,26 @@ const validSlugs = [
 
 type Slug = (typeof validSlugs)[number];
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return validSlugs.map((slug) => ({ slug }));
 }
 
-export const metadata: Metadata = {
-  title: "Blog",
-};
-
-export default async function BlogPostPage({
-  params,
-}: {
+export default async function BlogPostPage(props: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params;
+  const { slug } = await props.params;
 
   if (!validSlugs.includes(slug as Slug)) {
     notFound();
   }
 
-  const t = await getTranslations("Blog");
+  return <BlogPostContent slug={slug as Slug} />;
+}
+
+function BlogPostContent({ slug }: { slug: Slug }) {
+  const t = useTranslations("Blog");
 
   const title = t(`posts.${slug}.title`);
   const date = t(`posts.${slug}.date`);
@@ -48,10 +47,7 @@ export default async function BlogPostPage({
     headline: title,
     description: excerpt,
     datePublished: date,
-    author: {
-      "@type": "Person",
-      name: "Dennis Diepolder",
-    },
+    author: { "@type": "Person", name: "Dennis Diepolder" },
     url: `${siteUrl}/en/blog/${slug}`,
   };
 
