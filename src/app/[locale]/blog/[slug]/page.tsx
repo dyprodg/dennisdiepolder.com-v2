@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft } from "lucide-react";
@@ -20,47 +19,9 @@ export function generateStaticParams() {
   return validSlugs.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string; locale: string }>;
-}): Promise<Metadata> {
-  const { slug, locale } = await params;
-
-  if (!validSlugs.includes(slug as Slug)) {
-    return {};
-  }
-
-  const t = await getTranslations({ locale, namespace: "Blog" });
-  const title = t(`posts.${slug}.title`);
-  const description = t(`posts.${slug}.excerpt`);
-  const date = t(`posts.${slug}.date`);
-
-  return {
-    title,
-    description,
-    alternates: {
-      canonical: `${siteUrl}/en/blog/${slug}`,
-      languages: {
-        en: `${siteUrl}/en/blog/${slug}`,
-        de: `${siteUrl}/de/blog/${slug}`,
-      },
-    },
-    openGraph: {
-      title,
-      description,
-      type: "article",
-      publishedTime: date,
-      url: `${siteUrl}/${locale}/blog/${slug}`,
-      authors: ["Dennis Diepolder"],
-    },
-    twitter: {
-      card: "summary",
-      title,
-      description,
-    },
-  };
-}
+export const metadata: Metadata = {
+  title: "Blog",
+};
 
 export default async function BlogPostPage({
   params,
@@ -73,23 +34,19 @@ export default async function BlogPostPage({
     notFound();
   }
 
-  return <BlogPostContent slug={slug as Slug} />;
-}
-
-function BlogPostContent({ slug }: { slug: Slug }) {
-  const t = useTranslations("Blog");
+  const t = await getTranslations("Blog");
 
   const title = t(`posts.${slug}.title`);
   const date = t(`posts.${slug}.date`);
+  const excerpt = t(`posts.${slug}.excerpt`);
   const content = t(`posts.${slug}.content`);
-
   const paragraphs = content.split("\n\n");
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: title,
-    description: t(`posts.${slug}.excerpt`),
+    description: excerpt,
     datePublished: date,
     author: {
       "@type": "Person",

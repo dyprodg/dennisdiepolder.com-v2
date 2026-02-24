@@ -8,7 +8,7 @@ const getSnapshot = () => true;
 const getServerSnapshot = () => false;
 
 export function GitHubContributions() {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const mounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   if (!mounted) {
@@ -17,7 +17,7 @@ export function GitHubContributions() {
     );
   }
 
-  const color = theme === "dark" ? "10b981" : "059669";
+  const color = resolvedTheme === "dark" ? "10b981" : "059669";
 
   return (
     <div className="w-full overflow-hidden">
@@ -32,6 +32,7 @@ export function GitHubContributions() {
           src={`https://ghchart.rshah.org/${color}/dyprodg`}
           alt="GitHub Contribution Chart"
           className="w-full rounded-lg"
+          loading="lazy"
         />
       </a>
     </div>
