@@ -14,11 +14,7 @@ const validSlugs = [
 
 type Slug = (typeof validSlugs)[number];
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return validSlugs.map((slug) => ({ slug }));
-}
+export const dynamic = "force-dynamic";
 
 export default async function BlogPostPage(props: {
   params: Promise<{ slug: string }>;
