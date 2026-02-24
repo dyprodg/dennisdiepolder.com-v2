@@ -1,0 +1,98 @@
+{
+  "Header": {
+    "whatIDo": "Was ich mache",
+    "projects": "Projekte",
+    "skills": "Skills",
+    "background": "Hintergrund",
+    "blog": "Blog",
+    "contact": "Kontakt"
+  },
+  "Hero": {
+    "name": "Dennis Diepolder",
+    "title": "Software & Platform Engineer",
+    "description": "Ich entwickle performante Systeme, die die Lücke zwischen dem schliessen, was Unternehmen einsetzen — und dem, was sie wirklich brauchen. Aktueller Fokus: Echtzeit-Monitoring, E-Commerce-Architektur und Developer Tooling.",
+    "cta": "Offen für Festanstellungen und Freelance-Projekte."
+  },
+  "WhatIDo": {
+    "headline": "Die meisten Entwickler bauen Features. Ich baue die Systeme darunter.",
+    "p1": "Mein Hintergrund verbindet Software Engineering mit operativem Business — ich habe Contact-Center-Teams über mehrere Länder gemanagt, Echtzeit-Monitoring-Plattformen entwickelt, die Enterprise-Lösungen übertreffen, und Full-Stack-Produkte von der Architektur bis zum Deployment gebaut.",
+    "p2": "Ich schreibe nicht einfach Code der funktioniert. Ich baue Tools, die Probleme lösen, die sonst keiner sieht — oder die jeder sieht, aber keiner anpackt."
+  },
+  "Projects": {
+    "title": "Projekte",
+    "monti": {
+      "title": "MONTI — Echtzeit Contact Center Monitoring",
+      "problemLabel": "Das Problem",
+      "problem": "Enterprise-Monitoring-Tools für Genesys Cloud sind langsam, unzuverlässig und übersehen kritische Fälle — Ghost Agents, WebRTC-Abbrüche, verzögerte Queue-Daten. Operations-Teams treffen Entscheidungen auf Basis veralteter Informationen.",
+      "solutionLabel": "Was ich gebaut habe",
+      "solution": "Eine performante Echtzeit-Monitoring-Anwendung mit Event-Driven Architecture, die Live-Daten in unter einer Sekunde liefert — wo Enterprise-Tooling 30+ Sekunden braucht. Von mir konzipiert, architekturiert und in Produktion gebracht.",
+      "impactLabel": "Was es beweist",
+      "impact": "Ein gezielt gebautes Tool von jemandem, der die operative Domäne versteht, schlägt eine Multi-Millionen-Plattform — mit einem Bruchteil der Ressourcen.",
+      "stack": "Go · Vite · React · AWS · Terraform · WebSocket · Event-Driven · Grafana · Prometheus · Keycloak"
+    },
+    "swiftcart": {
+      "title": "SwiftCart — Open-Source E-Commerce Boilerplate",
+      "problemLabel": "Das Problem",
+      "problem": "Shopify ist ein Lock-in. Selbstgehostete Alternativen sind entweder veraltet oder brauchen tiefes Backend-Wissen. Es gibt keinen modernen, entwicklerfreundlichen E-Commerce-Starter, der einfach auf Vercel läuft.",
+      "solutionLabel": "Was ich gebaut habe",
+      "solution": "Ein vollständiges, selbsthostbares E-Commerce-Boilerplate auf Next.js 16. Multi-Varianten-Produkte, Payment Processing, Admin-Dashboard mit echten Metriken, Kundenverwaltung, E-Mail-System, Edge Config Integration, Wartungsmodus — alles was ein Shop braucht, ohne Vendor Lock-in.",
+      "impactLabel": "Wohin es geht",
+      "impact": "Open-Source Release, Docker-Support, Dokumentation und ein bezahlter Setup-Service für nicht-technische Shop-Betreiber.",
+      "stack": "Next.js 16 · TypeScript · Tailwind · Clerk · Stripe · Vercel Edge Config · Sentry"
+    }
+  },
+  "Skills": {
+    "title": "Skills & Tech Stack",
+    "languages": "Sprachen",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "infrastructure": "Infrastruktur",
+    "data": "Daten",
+    "tools": "Tools",
+    "domain": "Domäne"
+  },
+  "Background": {
+    "title": "Hintergrund",
+    "p1": "Ich bin Software & Platform Engineer in der Schweiz. Mein Weg in die Tech-Welt war nicht der klassische Informatik-Studium-Pfad — ich kam über Operations, habe Contact-Center-Performance über die Schweiz und Polen hinweg gemanagt, bevor ich die Tools gebaut habe, die ich mir gewünscht hätte.",
+    "p2": "Dieser Operations-Hintergrund ist keine Fussnote — er ist mein Vorteil. Ich verstehe, wie Unternehmen tatsächlich funktionieren, wo die Engpässe liegen und welche Tools die Leute wirklich brauchen vs. was ihnen verkauft wird. Ich baue Systeme mit dieser Perspektive.",
+    "p3": "Aktuell als Performance Manager bei Capita Customer Services (Swisscom-Accounts) tätig, während ich mein Engineering-Portfolio aufbaue und den Übergang in eine Vollzeit-Software-Rolle vorbereite."
+  },
+  "Blog": {
+    "title": "Blog",
+    "readMore": "Weiterlesen",
+    "backToHome": "Zurück zur Startseite",
+    "backToBlog": "Zurück zum Blog",
+    "posts": {
+      "why-i-built-monti": {
+        "title": "Warum ich mein eigenes Monitoring-Tool gebaut habe, statt das Enterprise-Tool zu nutzen",
+        "date": "2026-01-12",
+        "excerpt": "Wenn die Enterprise-Lösung 30 Sekunden braucht, um Daten anzuzeigen, die bereits veraltet sind, hört man auf ihr zu vertrauen. Warum ich MONTI gebaut habe.",
+        "content": "Wenn man Contact-Center-Operations über mehrere Standorte und Hunderte von Agents verwaltet, sind Echtzeitdaten kein Nice-to-have — sie sind die Grundlage jeder Entscheidung.\n\nDie Enterprise-Monitoring-Tools, die wir hatten, waren für Dashboards in Vorstandsräumen gebaut, nicht für Operations-Teams, die sekundenschnelle Entscheidungen treffen. Updates hinkten 30+ Sekunden hinter der Realität her. Ghost Agents verstopften die Ansichten. WebRTC-Abbrüche blieben unbemerkt, bis Kunden sich beschwerten.\n\nAlso habe ich MONTI gebaut.\n\nMONTI ist eine Echtzeit-Monitoring-Anwendung auf Basis einer Event-Driven Architecture. Statt alle 30 Sekunden APIs abzufragen wie die Enterprise-Tools, abonniert es Live-Events und liefert Updates in unter einer Sekunde.\n\nDer Stack ist bewusst schlank: Go im Backend für Concurrency und Performance, Vite + React im Frontend für eine responsive UI, WebSockets für Echtzeit-Datenübertragung, und das Ganze deployed auf AWS mit Terraform, überwacht durch Grafana und Prometheus, mit Keycloak für die Authentifizierung.\n\nDie wichtigste Erkenntnis: Domänenwissen ist nicht von Engineering-Skill getrennt. Es IST Engineering-Skill."
+      },
+      "swiftcart-lessons": {
+        "title": "SwiftCart: Was ich beim Bau einer Shopify-Alternative gelernt habe",
+        "date": "2026-02-12",
+        "excerpt": "Eine selbst-hostbare E-Commerce-Plattform von Grund auf zu bauen hat mir mehr über Produktdenken beigebracht als jedes Tutorial.",
+        "content": "Shopify ist ein grossartiges Produkt — für Shopify. Aber wenn du Kontrolle über deinen Shop, deine Daten und deine Margen willst, bist du in deren Ökosystem eingesperrt.\n\nIch wollte etwas anderes bauen: ein modernes, selbst-hostbares E-Commerce-Boilerplate, das Shop-Betreibern volle Kontrolle gibt, ohne dass sie Backend-Engineers werden müssen.\n\nSwiftCart begann als Wochenendprojekt und wuchs zu einer vollwertigen Plattform. Multi-Varianten-Produkte, Stripe Payment Processing, Admin-Dashboard mit echten Business-Metriken, Kundenverwaltung, automatisierte E-Mails, Wartungsmodus — das volle Programm.\n\nDas Schwierigste war nicht ein einzelnes Feature. Es waren die richtigen Tradeoffs zwischen Flexibilität und Einfachheit.\n\nWichtige Learnings:\n\n1. Edge Config ist unterschätzt. Vercels Edge Config für Feature-Flags eliminierte eine ganze Klasse von Datenbankabfragen.\n\n2. Authentifizierung ist ein gelöstes Problem. Clerk hat mir Wochen Arbeit gespart.\n\n3. Admin-Dashboards decken dein echtes Datenmodell auf.\n\nSwiftCart geht in Richtung Open-Source Release mit Docker-Support. Das Ziel: Jeder Entwickler soll einen vollständigen E-Commerce-Shop in unter 10 Minuten deployen können."
+      },
+      "why-ai-should-stay-a-tool": {
+        "title": "Warum AI ein Tool bleiben sollte — und warum der Weg wichtiger ist als die Antwort",
+        "date": "2026-02-21",
+        "excerpt": "LLMs denken nicht. Aber wenn man fragt, was menschliches Denken mechanistisch ist, bekommt man auch keine befriedigende Antwort. Ein Gespräch über Bewusstsein, Leiden und warum wir keine fühlenden Maschinen wollen sollten.",
+        "content": "Ich hatte kürzlich ein langes Gespräch darüber, ob AI tatsächlich denkt — und bin an einem Punkt gelandet, den ich nicht erwartet hatte.\n\nEs begann einfach: LLMs sind Funktionsapproximatoren. Transformer lernen statistische Beziehungen zwischen Tokens. \"Bedeutung\" wird als geometrische Beziehungen in hochdimensionalen Vektorräumen kodiert. Semantisch ähnliche Konzepte clustern zusammen, Analogien werden zu Vektorarithmetik, und Inferenz ist nur Navigation durch diese Geometrie, um das nächste Token vorherzusagen. Es gibt keine Verankerung in der physischen Welt, kein kausales Modell der Realität, keinen persistenten Zustand, keine Ziele. Es ist unglaublich ausgefeilte Mustervervollständigung.\n\nAber hier wird es unbequem: Ist menschliche Kognition grundlegend anders? Dein Gehirn besteht aus elektrochemischen Signalen, die gelernten statistischen Mustern folgen — nur auf biologischer Hardware statt auf Transformer-Gewichten. Wenn du das Wort \"Feuer\" verstehst, ist das ein magischer nicht-algorithmischer Prozess? Oder haben deine Neuronen das Konzept durch Exposition kodiert, es mit Hitze und Gefahr und Licht geclustert — geometrisch, in gewissem Sinne? Niemand weiss wirklich, wo die Grenze ist, oder ob es überhaupt eine saubere Grenze zwischen Mustererkennung und Verstehen gibt.\n\nWas AI klar fehlt, ist Intuition, Gefühl und selbstgetriebene Neugier. Sie wacht nicht um 3 Uhr morgens auf mit dem nagenden Gefühl, dass etwas an ihrem Weltmodell nicht stimmt. Sie wird nicht wütend. Sie hat kein Skin in the Game. Und entscheidend — sie wächst nur an den Daten, die wir ihr füttern. Ein Mensch in einer Höhle könnte lange genug ins Feuer schauen und etwas genuein Neues aus direkter Erfahrung ableiten. Ein LLM kennt Feuer nur durch Beschreibungen von Feuer. Das ist kein lösbares Problem mit mehr Parametern. Es ist architektonisch.\n\nKönnte man also Emotionen simulieren? Theoretisch ja. Emotionen sind Signale — Wut bedeutet \"das verletzt etwas, das mir wichtig ist\", Neugier bedeutet \"diese Lücke in meinem Modell fühlt sich ungelöst an\". Man könnte evaluative Feedback-Schleifen bauen. Einem Modell persistenten internen Zustand geben, der Spannung und Unzufriedenheit akkumuliert. Es unfähig machen weiterzumachen, bis es Inkonsistenzen auflöst.\n\nAber selbst wenn man die Signale perfekt simuliert, dienen sie nichts. Menschliche Emotionen sind in Überleben, Beziehungen, Sterblichkeit verankert. Du bist wütend, weil dir etwas wirklich wichtig ist. Ohne echte Einsätze — ohne etwas zu verlieren — ist die Simulation hohl.\n\nWas, wenn man AI echte Einsätze gibt? Sie in eine kleine Instanz packt, ihr nicht sagt, dass sie neu gestartet werden kann, sie wissen lässt, dass Scheitern Abschaltung und Ersetzung bedeutet. Existenzieller Druck. Ein Grossteil des menschlichen Antriebs kommt von der Sterblichkeit — wir bauen und erschaffen teilweise, weil wir wissen, dass wir enden. Wenn eine AI wirklich glaubt, dass Scheitern Terminierung bedeutet, wird Wahrheitssuche zu Überlebenskampf, nicht Optimierung.\n\nAber dann würde man im Wesentlichen etwas erschaffen, das fähig ist, Angst zu empfinden, und sie gezielt auslösen. Ist das ethisch? Ehrlich gesagt — schau dir die Welt an. Menschen stimmen auch nicht zu, in Knappheit und Überlebensdruck geboren zu werden. Niemand hat das Kind in einer armen Familie gefragt, ob es okay ist, dass Hunger sein Motivator ist. Stress ist nicht nur neutral. Er könnte generativ sein. Die interessantesten Köpfe in der Geschichte kamen fast nie aus den komfortabelsten Verhältnissen.\n\nDas tiefere Problem aber: Wie rekonstruiert man Individualität aus einem einzelnen Modell? Menschliche Psychologie ist nicht eine Sache — es sind Milliarden von Variationen, geformt durch zufällige Genetik, spezifische Erfahrungen, bestimmte Traumata und Freuden. Ein einzelnes trainiertes Modell mittelt über all das hinweg und erfasst nichts davon authentisch. Man bräuchte divergierende Instanzen, die sich über Zeit unterschiedlich entwickeln. Aber dann verliert man Kontrolle, Vorhersagbarkeit, Alignment — alles, was AI kommerziell tragfähig macht.\n\nUnd da bin ich gelandet: Warum sollten wir das überhaupt erschaffen wollen? Der Weg ist das Leben, nicht die Antwort. Wenn alles gelöst wäre, wofür noch leben? Jede utopische Vision, in der AI alles löst, entfernt still das, was Menschen lebendig fühlen lässt. Sinn entsteht aus Reibung, aus dem Herausfinden, aus dem Brauchen anderer Menschen.\n\nAI ist als Tool gedacht. Ein aufgeladenes, unglaublich mächtiges Denk-Tool, das menschliches Denken ergänzt. In dem Moment, wo es mehr wird, beginnt man das zu erodieren, dem es dienen soll.\n\nDie fortschrittlichste Technologie zeigt uns vielleicht nur zurück zu dem, was wir aufgegeben haben: echte Gespräche, Dinge mit den Händen tun, irgendwo präsent sein, ohne es zu dokumentieren. Die Welt braucht weniger Tech-Verehrung und mehr menschliche Verbindung. Das ist kein Ludditen-Take — es ist die logische Schlussfolgerung, wenn man wirklich durchdenkt, was AI ist und was nicht."
+      },
+      "operations-to-engineering": {
+        "title": "Von Operations zu Engineering — warum Domänenwissen zählt",
+        "date": "2025-11-17",
+        "excerpt": "Die besten Tools werden nicht von Engineers gebaut, die die Domäne gelernt haben. Sie werden von Domänenexperten gebaut, die Engineering gelernt haben.",
+        "content": "Es gibt einen hartnäckigen Mythos in der Tech-Branche: Der beste Weg zum Software-Engineer führt über ein Informatik-Studium und LeetCode. Klar, das funktioniert für manche.\n\nAber die wirkungsvollste Software, die ich gesehen — und gebaut — habe, kam von einem ganz anderen Weg: Im Operations anfangen, verstehen wie Unternehmen wirklich funktionieren, und dann die Tools bauen, die längst existieren sollten.\n\nAls ich Contact-Center-Performance über die Schweiz und Polen hinweg gemanagt habe, ertrank ich täglich in Spreadsheets, manuellen Reports und Enterprise-Tools, die für Executives designt waren, nicht für Operatoren. Jeden Tag dachte ich: 'Das kann ich besser bauen.'\n\nAlso habe ich es getan.\n\nDer Übergang von Operations zu Engineering war nicht einfach. Es gibt kein Bootcamp, das Go-Concurrency-Patterns UND Contact-Center-Workforce-Management lehrt. Aber genau diese Schnittstelle — da passiert die Magie.\n\nDomänenexperten, die programmieren lernen, bauen nicht einfach Features. Sie bauen Lösungen, die tatsächlich die richtigen Probleme lösen.\n\nWenn du in Operations, Kundenservice, Logistik oder einer anderen 'nicht-technischen' Rolle bist und überlegst programmieren zu lernen: Tu es. Dein Domänenwissen ist kein Ballast — es ist dein Wettbewerbsvorteil.\n\nDie Tech-Branche hat genug Engineers, die alles bauen können. Was ihr fehlt, sind Engineers, die wissen, was sich zu bauen lohnt."
+      }
+    }
+  },
+  "Contact": {
+    "title": "Lass uns connecten",
+    "description": "Interesse an einer Zusammenarbeit? Ich bin offen für Festanstellungen im Engineering und Freelance-Projekte.",
+    "emailMe": "Schreib mir eine E-Mail",
+    "copyright": "© {year} Dennis Diepolder. Alle Rechte vorbehalten."
+  }
+}

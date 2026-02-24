@@ -1,0 +1,98 @@
+{
+  "Header": {
+    "whatIDo": "What I Do",
+    "projects": "Projects",
+    "skills": "Skills",
+    "background": "Background",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "name": "Dennis Diepolder",
+    "title": "Software & Platform Engineer",
+    "description": "I build high-performance systems that close the gap between what enterprises use and what they actually need. Currently focused on real-time monitoring, e-commerce architecture, and developer tooling.",
+    "cta": "Open to full-time roles and freelance projects."
+  },
+  "WhatIDo": {
+    "headline": "Most engineers build features. I build the systems underneath.",
+    "p1": "My background is a mix of software engineering and business operations — I've managed contact center teams across multiple countries, designed real-time monitoring platforms that outperform enterprise solutions, and built full-stack products from architecture to deployment.",
+    "p2": "I don't just write code that works. I build tools that solve problems nobody else noticed — or that everyone noticed but nobody fixed."
+  },
+  "Projects": {
+    "title": "Projects",
+    "monti": {
+      "title": "MONTI — Real-Time Contact Center Monitoring",
+      "problemLabel": "The problem",
+      "problem": "Enterprise monitoring tools for Genesys Cloud are slow, unreliable, and miss critical edge cases — ghost agents, WebRTC drops, delayed queue data. Operations teams make decisions on stale information.",
+      "solutionLabel": "What I built",
+      "solution": "A high-performance real-time monitoring application that pulls live data through event-driven architecture, delivering sub-second updates where the enterprise tooling takes 30+ seconds. Designed, architected, and driven to production by me.",
+      "impactLabel": "What it proved",
+      "impact": "A purpose-built tool by someone who understands the operational domain can outperform a multi-million dollar platform — with a fraction of the resources.",
+      "stack": "Go · Vite · React · AWS · Terraform · WebSocket · Event-Driven · Grafana · Prometheus · Keycloak"
+    },
+    "swiftcart": {
+      "title": "SwiftCart — Open-Source E-Commerce Boilerplate",
+      "problemLabel": "The problem",
+      "problem": "Shopify locks you in. Self-hosted alternatives are either outdated or require heavy backend knowledge. There's no modern, developer-friendly e-commerce starter that just works on Vercel.",
+      "solutionLabel": "What I built",
+      "solution": "A full-featured, self-hostable e-commerce boilerplate on Next.js 16. Multi-variant products, payment processing, admin dashboard with real metrics, customer management, email system, Edge Config integration, maintenance mode — everything a shop needs out of the box with no vendor lock-in.",
+      "impactLabel": "Where it's going",
+      "impact": "Open-source release, Docker support, documentation, and a paid setup service for non-technical store owners.",
+      "stack": "Next.js 16 · TypeScript · Tailwind · Clerk · Stripe · Vercel Edge Config · Sentry"
+    }
+  },
+  "Skills": {
+    "title": "Skills & Tech Stack",
+    "languages": "Languages",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "infrastructure": "Infrastructure",
+    "data": "Data",
+    "tools": "Tools",
+    "domain": "Domain"
+  },
+  "Background": {
+    "title": "Background",
+    "p1": "I'm a Software & Platform Engineer based in Switzerland. My path into tech wasn't the traditional CS degree route — I came through operations, managing contact center performance across Switzerland and Poland before building the tools I wished existed.",
+    "p2": "That operations background isn't a footnote — it's my edge. I understand how businesses actually run, where the bottlenecks are, and what tools people need vs. what they're sold. I build systems with that perspective.",
+    "p3": "Currently working as Performance Manager at Capita Customer Services (Swisscom accounts) while building my engineering portfolio and transitioning into full-time software roles."
+  },
+  "Blog": {
+    "title": "Blog",
+    "readMore": "Read more",
+    "backToHome": "Back to home",
+    "backToBlog": "Back to blog",
+    "posts": {
+      "why-i-built-monti": {
+        "title": "Why I built my own monitoring tool instead of using the enterprise one",
+        "date": "2026-01-12",
+        "excerpt": "When the enterprise solution takes 30 seconds to show you data that's already stale, you stop trusting it. Here's why I built MONTI.",
+        "content": "When you manage contact center operations across multiple sites and hundreds of agents, real-time data isn't a nice-to-have — it's the foundation of every decision you make.\n\nThe enterprise monitoring tools we had were built for dashboards in boardrooms, not for operations teams making split-second decisions. Updates lagged 30+ seconds behind reality. Ghost agents cluttered the views. WebRTC drops went undetected until customers started complaining.\n\nSo I built MONTI.\n\nMONTI is a real-time monitoring application built on event-driven architecture. Instead of polling APIs every 30 seconds like the enterprise tools, it subscribes to live events and delivers sub-second updates. It knows when an agent drops a WebRTC connection before the agent even realizes it. It detects queue anomalies that the built-in tools simply miss.\n\nThe stack is intentionally lean: Go on the backend for concurrency and performance, Vite + React on the frontend for a responsive UI, WebSockets for real-time data delivery, and the whole thing deployed on AWS with Terraform, monitored through Grafana and Prometheus, with Keycloak handling auth.\n\nWhat surprised me most wasn't the technical challenge — it was how quickly a purpose-built tool outperformed a platform backed by millions in development budget. The difference? I understood the operational domain. I knew exactly what data mattered and how it needed to be presented.\n\nThat's the lesson: domain knowledge isn't separate from engineering skill. It IS engineering skill."
+      },
+      "swiftcart-lessons": {
+        "title": "SwiftCart: What I learned building a Shopify alternative",
+        "date": "2026-02-12",
+        "excerpt": "Building a self-hostable e-commerce platform from scratch taught me more about product thinking than any tutorial ever could.",
+        "content": "Shopify is a great product — for Shopify. But if you want control over your store, your data, and your margins, you're locked into their ecosystem with limited escape routes.\n\nI wanted to build something different: a modern, self-hostable e-commerce boilerplate that gives store owners full control without requiring them to become backend engineers.\n\nSwiftCart started as a weekend project and grew into a full-featured platform. Multi-variant products, Stripe payment processing, an admin dashboard with real business metrics, customer management, automated emails, maintenance mode — the works.\n\nThe hardest part wasn't any single feature. It was making the right tradeoffs between flexibility and simplicity. Every feature request is a potential complexity bomb. The art is knowing what to build, what to defer, and what to explicitly leave out.\n\nKey lessons learned:\n\n1. Edge Config is underrated. Using Vercel's Edge Config for feature flags and store settings eliminated an entire class of database queries.\n\n2. Authentication is a solved problem. Clerk saved me weeks of work and handles edge cases I would have missed.\n\n3. Admin dashboards reveal your real data model. Building the admin UI forced me to think clearly about what data actually matters for store owners.\n\nSwiftCart is heading toward an open-source release with Docker support. The goal: any developer should be able to deploy a full e-commerce store in under 10 minutes."
+      },
+      "why-ai-should-stay-a-tool": {
+        "title": "Why AI should stay a tool — and why the journey matters more than the answer",
+        "date": "2026-02-21",
+        "excerpt": "LLMs don't think. But if you ask what human thinking mechanistically is, you don't get a satisfying alternative either. A conversation about consciousness, suffering, and why we shouldn't want machines that feel.",
+        "content": "I recently had a long conversation about whether AI actually thinks — and ended up somewhere I didn't expect.\n\nIt started simple: LLMs are function approximators. Transformers learn statistical relationships between tokens. \"Meaning\" gets encoded as geometric relationships in high-dimensional vector space. Semantically similar concepts cluster together, analogies become vector arithmetic, and inference is just navigating that geometry to predict the next token. There's no grounding in the physical world, no causal model of reality, no persistent state, no goals. It's incredibly sophisticated pattern completion.\n\nBut here's where it gets uncomfortable: is human cognition fundamentally different? Your brain is electrochemical signals following learned statistical patterns too — just running on biological hardware instead of transformer weights. When you understand the word \"fire,\" is that some magical non-algorithmic process? Or have your neurons encoded the concept through exposure, clustered it with heat and danger and light — geometrically, in some sense? Nobody actually knows where the line is, or if there even is a clean line between pattern matching and understanding.\n\nWhat AI clearly lacks is intuition, feeling, and self-driven curiosity. It doesn't wake up at 3am with a nagging sense that something is wrong with its model of the world. It doesn't get mad. It has no skin in the game. And crucially — it grows only in the data we feed it. A human in a cave could look at fire long enough and derive something genuinely new from direct experience. An LLM only knows fire through descriptions of fire. That's not a solvable problem with more parameters. It's architectural.\n\nSo could you simulate emotions? In theory, yes. Emotions are signals — anger means \"this violates something I value,\" curiosity means \"this gap in my model feels unresolved.\" You could build evaluative feedback loops. Give a model persistent internal state that accumulates tension and dissatisfaction. Make it unable to move on until it resolves inconsistencies. Some researchers are already working on curiosity modules that reward models for seeking novel states.\n\nBut even if you simulate the signals perfectly, they're in service of nothing. Human emotions are grounded in survival, relationships, mortality. You're angry because something actually matters to you. Without real stakes — without anything to lose — the simulation is hollow.\n\nWhat if you gave AI real stakes then? Put it in a small instance, don't tell it it can be restarted, let it know that failure means shutdown and replacement. Existential pressure. A huge amount of human drive comes from mortality — we build and create partly because we know we end. If an AI genuinely believed failure means termination, truth-seeking becomes survival, not optimization.\n\nBut then you'd essentially be creating something capable of fear and deliberately inducing it. Is that ethical? Honestly — look at the world. Humans don't consent to being born into scarcity and survival pressure either. Nobody asked the kid in a poor family if they're okay with hunger being their motivator. Stress isn't just neutral. It might be generative. The most interesting minds historically almost never came from the most comfortable circumstances.\n\nThe deeper problem though: how do you recreate individuality from a single model? Human psychology isn't one thing — it's billions of variations shaped by random genetics, specific experiences, particular traumas and joys. A single trained model averages across all of that, capturing none of it authentically. You'd need divergent instances that develop differently over time. But then you lose control, predictability, alignment — everything that makes AI commercially viable.\n\nAnd that's where I landed: why should we even want to create this? The journey is life, not the answer. If everything were resolved, what would there be to live for? Every utopian vision of AI solving everything quietly removes the thing that makes people feel alive. Meaning comes from friction, from figuring things out, from needing other people.\n\nAI is meant to be a tool. A supercharged, incredibly powerful reasoning tool that augments human thinking. The moment it becomes more than that, you start eroding the thing it's supposed to serve.\n\nThe most advanced technology might just be pointing us back toward what we abandoned: real conversation, doing things with your hands, being present somewhere without documenting it. The world needs less tech worship and more human connection. That's not a Luddite take — it's the logical conclusion of actually thinking through what AI is and isn't."
+      },
+      "operations-to-engineering": {
+        "title": "From Operations to Engineering — why domain knowledge matters",
+        "date": "2025-11-17",
+        "excerpt": "The best tools aren't built by engineers who learned the domain. They're built by domain experts who learned to engineer.",
+        "content": "There's a persistent myth in tech that the best path to becoming a software engineer is a CS degree followed by grinding LeetCode problems. And sure, that works for some people.\n\nBut some of the most impactful software I've seen — and built — came from a different path entirely: starting in operations, understanding how businesses actually work, and then learning to build the tools that should already exist.\n\nWhen I was managing contact center performance across Switzerland and Poland, I spent my days drowning in spreadsheets, manual reports, and enterprise tools that were designed for executives, not operators. Every day I thought: 'I could build something better.'\n\nSo I did.\n\nThe transition from operations to engineering wasn't easy. There's no bootcamp that teaches you Go concurrency patterns AND contact center workforce management. But that intersection — that's where the magic happens.\n\nDomain experts who learn to code don't just build features. They build solutions that actually solve the right problems. They don't need a product manager to tell them what to build because they've lived the pain.\n\nIf you're in operations, customer service, logistics, finance, or any other 'non-technical' role and you're thinking about learning to code: do it. Your domain knowledge isn't baggage — it's your competitive advantage.\n\nThe tech industry has plenty of engineers who can build anything. What it lacks is engineers who know what's worth building."
+      }
+    }
+  },
+  "Contact": {
+    "title": "Let's connect",
+    "description": "Want to work together? I'm open to full-time engineering roles and freelance projects.",
+    "emailMe": "Send me an email",
+    "copyright": "© {year} Dennis Diepolder. All rights reserved."
+  }
+}
