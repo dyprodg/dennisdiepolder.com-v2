@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 };
 
 const blogSlugs = [
+  "the-generalist-advantage",
   "why-ai-should-stay-a-tool",
   "why-i-built-monti",
   "swiftcart-lessons",

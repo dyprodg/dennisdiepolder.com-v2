@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 const siteUrl = "https://dennisdiepolder.com";
 
 const validSlugs = [
+  "the-generalist-advantage",
   "why-ai-should-stay-a-tool",
   "why-i-built-monti",
   "swiftcart-lessons",
