@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 const siteUrl = "https://dennisdiepolder.com";
 
 const blogSlugs = [
+  "the-generalist-advantage",
   "why-ai-should-stay-a-tool",
   "why-i-built-monti",
   "swiftcart-lessons",
@@ -10,28 +11,52 @@ const blogSlugs = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const locales = ["en", "de"];
+  const locales = ["en", "de"] as const;
+  const now = new Date();
 
-  const pages = locales.flatMap((locale) => [
-    {
-      url: `${siteUrl}/${locale}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 1,
+  const home = locales.map((locale) => ({
+    url: `${siteUrl}/${locale}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 1,
+    alternates: {
+      languages: {
+        en: `${siteUrl}/en`,
+        de: `${siteUrl}/de`,
+        "x-default": `${siteUrl}/en`,
+      },
     },
-    {
-      url: `${siteUrl}/${locale}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.8,
+  }));
+
+  const blogIndex = locales.map((locale) => ({
+    url: `${siteUrl}/${locale}/blog`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+    alternates: {
+      languages: {
+        en: `${siteUrl}/en/blog`,
+        de: `${siteUrl}/de/blog`,
+        "x-default": `${siteUrl}/en/blog`,
+      },
     },
-    ...blogSlugs.map((slug) => ({
+  }));
+
+  const posts = locales.flatMap((locale) =>
+    blogSlugs.map((slug) => ({
       url: `${siteUrl}/${locale}/blog/${slug}`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "monthly" as const,
-      priority: 0.6,
+      priority: 0.7,
+      alternates: {
+        languages: {
+          en: `${siteUrl}/en/blog/${slug}`,
+          de: `${siteUrl}/de/blog/${slug}`,
+          "x-default": `${siteUrl}/en/blog/${slug}`,
+        },
+      },
     })),
-  ]);
+  );
 
-  return pages;
+  return [...home, ...blogIndex, ...posts];
 }

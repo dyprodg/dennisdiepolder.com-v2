@@ -1,6 +1,7 @@
 {
   "Header": {
     "whatIDo": "Was ich mache",
+    "services": "Leistungen",
     "projects": "Projekte",
     "skills": "Skills",
     "background": "Hintergrund",
@@ -9,14 +10,65 @@
   },
   "Hero": {
     "name": "Dennis Diepolder",
-    "title": "Software & Platform Engineer",
-    "description": "Ich entwickle performante Systeme, die die Lücke zwischen dem schliessen, was Unternehmen einsetzen — und dem, was sie wirklich brauchen. Aktueller Fokus: Echtzeit-Monitoring, E-Commerce-Architektur und Developer Tooling.",
-    "cta": "Offen für Festanstellungen und Freelance-Projekte."
+    "title": "Software & Platform Engineer · Schweiz",
+    "description": "Ich entwickle performante Systeme, die die Lücke zwischen dem schliessen, was Unternehmen einsetzen — und dem, was sie wirklich brauchen. Echtzeit-Monitoring, E-Commerce, Web-Apps und individuelle Plattformen.",
+    "cta": "Offen für Projekte und Aufträge jedes Rahmens — von der fokussierten Landing Page bis zur individuellen Plattform.",
+    "ctaPrimary": "Projekt starten",
+    "ctaSecondary": "Projekte ansehen"
   },
   "WhatIDo": {
     "headline": "Die meisten Entwickler bauen Features. Ich baue die Systeme darunter.",
     "p1": "Mein Hintergrund verbindet Software Engineering mit operativem Business — ich habe Contact-Center-Teams über mehrere Länder gemanagt, Echtzeit-Monitoring-Plattformen entwickelt, die Enterprise-Lösungen übertreffen, und Full-Stack-Produkte von der Architektur bis zum Deployment gebaut.",
     "p2": "Ich schreibe nicht einfach Code der funktioniert. Ich baue Tools, die Probleme lösen, die sonst keiner sieht — oder die jeder sieht, aber keiner anpackt."
+  },
+  "Services": {
+    "title": "Leistungen & Preise",
+    "subtitle": "Engineering-Arbeit mit klarem Umfang, transparenten Preisen und ohne Agentur-Overhead. Gebaut, deployed und gepflegt von mir.",
+    "from": "Ab",
+    "currency": "CHF",
+    "popular": "Am beliebtesten",
+    "cta": "Angebot anfragen",
+    "disclaimer": "Preise sind einmalig, projektbasiert und zzgl. MwSt. wo anwendbar. Finale Angebote hängen von Umfang, Integrationen und Zeitplan ab.",
+    "tiers": {
+      "starter": {
+        "name": "Business-Landing-Page",
+        "price": "990",
+        "description": "Eine schnelle, moderne One-Pager-Website, die einen starken ersten Eindruck macht. Gebaut mit Next.js und optimiert für Conversions.",
+        "features": {
+          "f1": "Responsive One-Pager mit Sektionen",
+          "f2": "Kontaktformular mit Spam-Schutz",
+          "f3": "SEO-Setup, Sitemap & Schema",
+          "f4": "Optimiert für Core Web Vitals",
+          "f5": "Light/Dark Mode, mehrsprachig-ready"
+        }
+      },
+      "business": {
+        "name": "Business-Web-Applikation",
+        "price": "4.990",
+        "description": "Für KMUs und SaaS-MVPs, die mehr als eine Visitenkarten-Website brauchen — mit CMS, Authentifizierung und produktionsreifer Zahlungsabwicklung.",
+        "features": {
+          "f1": "Mehrseitige App oder Dashboard",
+          "f2": "CMS für nicht-technische Redaktion",
+          "f3": "Authentifizierung & Benutzerkonten",
+          "f4": "Stripe-Payments (Abos, Einmalzahlungen, Rechnungen)",
+          "f5": "Drittanbieter-Integrationen (CRM, E-Mail, Analytics)",
+          "f6": "Admin-Bereich mit echten Business-Metriken"
+        }
+      },
+      "platform": {
+        "name": "Custom Platform & Integrationen",
+        "price": "14.900",
+        "description": "Ein komplettes Business-Backbone — Echtzeitsysteme, individuelle Dashboards und massgeschneiderte Plattformen, wo Standard-Tools nicht reichen. Für ernsthafte Operationen, die in das richtige Fundament investieren wollen.",
+        "features": {
+          "f1": "Echtzeit-Daten mit WebSockets oder SSE",
+          "f2": "Event-Driven Architecture",
+          "f3": "AWS- oder Vercel-Infrastruktur (Terraform)",
+          "f4": "Enterprise SSO (Keycloak, Auth0, Clerk)",
+          "f5": "Custom APIs & komplexe Integrationen",
+          "f6": "Observability: Grafana, Prometheus, Sentry"
+        }
+      }
+    }
   },
   "Projects": {
     "title": "Projekte",
@@ -55,7 +107,7 @@
     "title": "Hintergrund",
     "p1": "Ich bin Software & Platform Engineer in der Schweiz. Mein Weg in die Tech-Welt war nicht der klassische Informatik-Studium-Pfad — ich kam über Operations, habe Contact-Center-Performance über die Schweiz und Polen hinweg gemanagt, bevor ich die Tools gebaut habe, die ich mir gewünscht hätte.",
     "p2": "Dieser Operations-Hintergrund ist keine Fussnote — er ist mein Vorteil. Ich verstehe, wie Unternehmen tatsächlich funktionieren, wo die Engpässe liegen und welche Tools die Leute wirklich brauchen vs. was ihnen verkauft wird. Ich baue Systeme mit dieser Perspektive.",
-    "p3": "Aktuell als Performance Manager bei Capita Customer Services (Swisscom-Accounts) tätig, während ich mein Engineering-Portfolio aufbaue und den Übergang in eine Vollzeit-Software-Rolle vorbereite."
+    "p3": "Mit Sitz in der Schweiz arbeite ich für Kunden in der gesamten DACH-Region an Web-Apps, Plattformen und Echtzeit-Systemen — allein oder mit vertrauten Partnern, wenn ein Projekt mehr Hände verlangt."
   },
   "Blog": {
     "title": "Blog",
@@ -96,9 +148,15 @@
     }
   },
   "Contact": {
-    "title": "Lass uns connecten",
-    "description": "Interesse an einer Zusammenarbeit? Ich bin offen für Festanstellungen im Engineering und Freelance-Projekte.",
+    "title": "Lass uns was bauen",
+    "description": "Projekt im Kopf? Ich übernehme Aufträge jeder Grösse — eine neue Landing Page, eine komplette Web-App, eine individuelle Plattform oder eine fokussierte Architektur-Sparringsession.",
     "emailMe": "Schreib mir eine E-Mail",
     "copyright": "© {year} Dennis Diepolder. Alle Rechte vorbehalten."
+  },
+  "NotFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die gesuchte Seite existiert nicht oder wurde verschoben. Zurück auf den richtigen Weg.",
+    "goHome": "Zur Startseite",
+    "goBlog": "Zum Blog"
   }
 }

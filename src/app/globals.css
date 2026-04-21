@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -17,8 +18,21 @@
   --color-accent-900: #064e3b;
 }
 
-html {
-  scroll-behavior: smooth;
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
 }
 
 body {
@@ -28,4 +42,163 @@ body {
 ::selection {
   background-color: var(--color-accent-500);
   color: white;
+}
+
+/* Animated background blobs */
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .blob {
+    filter: blur(110px);
+  }
+}
+
+.blob-1 {
+  width: 45vw;
+  height: 45vw;
+  max-width: 720px;
+  max-height: 720px;
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #10b981 0%,
+    #059669 40%,
+    transparent 70%
+  );
+  animation: blob-float-1 28s ease-in-out infinite alternate;
+}
+
+.blob-2 {
+  width: 40vw;
+  height: 40vw;
+  max-width: 640px;
+  max-height: 640px;
+  top: 20%;
+  right: -8%;
+  background: radial-gradient(
+    circle at 70% 40%,
+    #34d399 0%,
+    #10b981 40%,
+    transparent 70%
+  );
+  animation: blob-float-2 34s ease-in-out infinite alternate;
+}
+
+.blob-3 {
+  width: 38vw;
+  height: 38vw;
+  max-width: 600px;
+  max-height: 600px;
+  bottom: -5%;
+  left: 15%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    #6ee7b7 0%,
+    #059669 50%,
+    transparent 75%
+  );
+  animation: blob-float-3 40s ease-in-out infinite alternate;
+}
+
+.blob-4 {
+  width: 30vw;
+  height: 30vw;
+  max-width: 480px;
+  max-height: 480px;
+  bottom: 15%;
+  right: 10%;
+  background: radial-gradient(
+    circle at 40% 60%,
+    #047857 0%,
+    #065f46 40%,
+    transparent 70%
+  );
+  animation: blob-float-4 32s ease-in-out infinite alternate;
+}
+
+@keyframes blob-float-1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(15vw, 10vh) scale(1.15);
+  }
+  100% {
+    transform: translate(8vw, 20vh) scale(0.95);
+  }
+}
+
+@keyframes blob-float-2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-12vw, 15vh) scale(1.1);
+  }
+  100% {
+    transform: translate(-6vw, -8vh) scale(0.9);
+  }
+}
+
+@keyframes blob-float-3 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(18vw, -12vh) scale(0.9);
+  }
+  100% {
+    transform: translate(10vw, -20vh) scale(1.2);
+  }
+}
+
+@keyframes blob-float-4 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-15vw, -10vh) scale(1.2);
+  }
+  100% {
+    transform: translate(-5vw, -15vh) scale(0.85);
+  }
+}
+
+/* Subtle grid pattern overlay */
+.bg-grid {
+  background-image: linear-gradient(
+      to right,
+      currentColor 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, currentColor 1px, transparent 1px);
+  background-size: 64px 64px;
+  color: #09090b;
+  mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    black,
+    transparent 80%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    black,
+    transparent 80%
+  );
+}
+
+:where(.dark) .bg-grid {
+  color: #fafafa;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none !important;
+  }
 }

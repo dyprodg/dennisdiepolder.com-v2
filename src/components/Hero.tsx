@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Github, Linkedin, Mail } from "lucide-react";
-import { GitHubContributions } from "./GitHubContributions";
+import { Github, Linkedin, ArrowRight } from "lucide-react";
 
 export function Hero() {
   const t = useTranslations("Hero");
@@ -9,7 +8,7 @@ export function Hero() {
   return (
     <section className="min-h-[90vh] flex items-center pt-16">
       <div className="max-w-5xl mx-auto px-6 py-20">
-        <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-10 mb-12">
+        <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-10">
           <div className="flex-1">
             <p className="font-mono text-accent-500 text-sm mb-4 tracking-wide">
               {t("title")}
@@ -23,32 +22,40 @@ export function Hero() {
             <p className="text-base text-zinc-500 dark:text-zinc-500 mb-8">
               {t("cta")}
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3 flex-wrap">
               <a
-                href="https://github.com/dyprodg"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-md border border-zinc-300 dark:border-zinc-700 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                href="#services"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-md bg-accent-500 text-white text-sm font-medium hover:bg-accent-600 transition-colors"
               >
-                <Github size={16} />
-                GitHub
+                {t("ctaPrimary")}
+                <ArrowRight size={16} />
               </a>
               <a
-                href="https://www.linkedin.com/in/dennis-diepolder-2a5a98276/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-md border border-zinc-300 dark:border-zinc-700 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                href="#projects"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-md border border-zinc-300 dark:border-zinc-700 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
               >
-                <Linkedin size={16} />
-                LinkedIn
+                {t("ctaSecondary")}
               </a>
-              <a
-                href="mailto:info@dennisdiepolder.com"
-                className="flex items-center gap-2 px-4 py-2 rounded-md border border-zinc-300 dark:border-zinc-700 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-              >
-                <Mail size={16} />
-                Email
-              </a>
+              <div className="flex items-center gap-1 ml-1">
+                <a
+                  href="https://github.com/dyprodg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="p-2.5 rounded-md text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                >
+                  <Github size={18} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/dennis-diepolder-2a5a98276/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="p-2.5 rounded-md text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                >
+                  <Linkedin size={18} />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -63,8 +70,6 @@ export function Hero() {
             />
           </div>
         </div>
-
-        <GitHubContributions />
       </div>
     </section>
   );

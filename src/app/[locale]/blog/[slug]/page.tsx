@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -17,19 +19,80 @@ type Slug = (typeof validSlugs)[number];
 
 export const dynamic = "force-dynamic";
 
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string; locale: string }>;
+}): Promise<Metadata> {
+  const { slug, locale } = await props.params;
+
+  if (!validSlugs.includes(slug as Slug)) {
+    return {
+      title: "Post Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const t = await getTranslations({ locale, namespace: "Blog" });
+  const title = t(`posts.${slug}.title`);
+  const description = t(`posts.${slug}.excerpt`);
+  const date = t(`posts.${slug}.date`);
+  const canonical = `${siteUrl}/${locale}/blog/${slug}`;
+  const ogImage = `${siteUrl}/dennisdiepolder.jpeg`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical,
+      languages: {
+        en: `${siteUrl}/en/blog/${slug}`,
+        de: `${siteUrl}/de/blog/${slug}`,
+        "x-default": `${siteUrl}/en/blog/${slug}`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      url: canonical,
+      siteName: "Dennis Diepolder",
+      locale: locale === "de" ? "de_CH" : "en_US",
+      publishedTime: date,
+      authors: ["Dennis Diepolder"],
+      images: [
+        {
+          url: ogImage,
+          width: 800,
+          height: 800,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
+
 export default async function BlogPostPage(props: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 }) {
-  const { slug } = await props.params;
+  const { slug, locale } = await props.params;
 
   if (!validSlugs.includes(slug as Slug)) {
     notFound();
   }
 
-  return <BlogPostContent slug={slug as Slug} />;
+  return <BlogPostContent slug={slug as Slug} locale={locale} />;
 }
 
-function BlogPostContent({ slug }: { slug: Slug }) {
+function BlogPostContent({ slug, locale }: { slug: Slug; locale: string }) {
   const t = useTranslations("Blog");
 
   const title = t(`posts.${slug}.title`);
@@ -44,8 +107,24 @@ function BlogPostContent({ slug }: { slug: Slug }) {
     headline: title,
     description: excerpt,
     datePublished: date,
-    author: { "@type": "Person", name: "Dennis Diepolder" },
-    url: `${siteUrl}/en/blog/${slug}`,
+    dateModified: date,
+    inLanguage: locale,
+    author: {
+      "@type": "Person",
+      name: "Dennis Diepolder",
+      url: siteUrl,
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Dennis Diepolder",
+      url: siteUrl,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/${locale}/blog/${slug}`,
+    },
+    image: `${siteUrl}/dennisdiepolder.jpeg`,
+    url: `${siteUrl}/${locale}/blog/${slug}`,
   };
 
   return (

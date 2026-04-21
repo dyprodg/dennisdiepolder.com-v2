@@ -1,6 +1,7 @@
 {
   "Header": {
     "whatIDo": "What I Do",
+    "services": "Services",
     "projects": "Projects",
     "skills": "Skills",
     "background": "Background",
@@ -9,14 +10,65 @@
   },
   "Hero": {
     "name": "Dennis Diepolder",
-    "title": "Software & Platform Engineer",
-    "description": "I build high-performance systems that close the gap between what enterprises use and what they actually need. Currently focused on real-time monitoring, e-commerce architecture, and developer tooling.",
-    "cta": "Open to full-time roles and freelance projects."
+    "title": "Software & Platform Engineer · Switzerland",
+    "description": "I build high-performance systems that close the gap between what enterprises use and what they actually need — real-time monitoring, e-commerce, web apps, and custom platforms.",
+    "cta": "Taking on projects and contracts of any scale — from a focused landing page to a full custom platform.",
+    "ctaPrimary": "Start a project",
+    "ctaSecondary": "See my work"
   },
   "WhatIDo": {
     "headline": "Most engineers build features. I build the systems underneath.",
     "p1": "My background is a mix of software engineering and business operations — I've managed contact center teams across multiple countries, designed real-time monitoring platforms that outperform enterprise solutions, and built full-stack products from architecture to deployment.",
     "p2": "I don't just write code that works. I build tools that solve problems nobody else noticed — or that everyone noticed but nobody fixed."
+  },
+  "Services": {
+    "title": "Services & Pricing",
+    "subtitle": "Engineering work with a clear scope, transparent pricing, and zero agency overhead. Built, shipped, and maintained by me.",
+    "from": "Starting at",
+    "currency": "CHF",
+    "popular": "Most Popular",
+    "cta": "Request a quote",
+    "disclaimer": "Prices are one-time, project-based, plus VAT where applicable. Final quotes depend on scope, integrations, and timeline.",
+    "tiers": {
+      "starter": {
+        "name": "Business Landing Page",
+        "price": "990",
+        "description": "A fast, modern single-page site that makes a strong first impression. Built with Next.js and optimized for conversions.",
+        "features": {
+          "f1": "Responsive one-pager with sections",
+          "f2": "Contact form with spam protection",
+          "f3": "SEO setup, sitemap & schema",
+          "f4": "Core Web Vitals optimized",
+          "f5": "Light/dark mode, multi-language ready"
+        }
+      },
+      "business": {
+        "name": "Business Web Application",
+        "price": "4,990",
+        "description": "For SMEs and SaaS MVPs that need more than a brochure site — with a CMS, authentication, and production-grade payment processing.",
+        "features": {
+          "f1": "Multi-page app or dashboard",
+          "f2": "CMS for non-technical editing",
+          "f3": "Authentication & user accounts",
+          "f4": "Stripe payments (subscriptions, one-time, invoices)",
+          "f5": "Third-party integrations (CRM, email, analytics)",
+          "f6": "Admin area with real business metrics"
+        }
+      },
+      "platform": {
+        "name": "Custom Platform & Integrations",
+        "price": "14,900",
+        "description": "A complete business backbone — real-time systems, custom dashboards, and bespoke platforms where off-the-shelf tools fall short. For serious operations that are ready to invest in the right foundation.",
+        "features": {
+          "f1": "Real-time data with WebSockets or SSE",
+          "f2": "Event-driven architecture",
+          "f3": "AWS or Vercel infrastructure (Terraform)",
+          "f4": "Enterprise SSO (Keycloak, Auth0, Clerk)",
+          "f5": "Custom APIs & complex integrations",
+          "f6": "Observability: Grafana, Prometheus, Sentry"
+        }
+      }
+    }
   },
   "Projects": {
     "title": "Projects",
@@ -55,7 +107,7 @@
     "title": "Background",
     "p1": "I'm a Software & Platform Engineer based in Switzerland. My path into tech wasn't the traditional CS degree route — I came through operations, managing contact center performance across Switzerland and Poland before building the tools I wished existed.",
     "p2": "That operations background isn't a footnote — it's my edge. I understand how businesses actually run, where the bottlenecks are, and what tools people need vs. what they're sold. I build systems with that perspective.",
-    "p3": "Currently working as Performance Manager at Capita Customer Services (Swisscom accounts) while building my engineering portfolio and transitioning into full-time software roles."
+    "p3": "Based in Switzerland, working with clients across the DACH region on web apps, platforms, and real-time systems — solo, or together with trusted partners when a project calls for more hands."
   },
   "Blog": {
     "title": "Blog",
@@ -96,9 +148,15 @@
     }
   },
   "Contact": {
-    "title": "Let's connect",
-    "description": "Want to work together? I'm open to full-time engineering roles and freelance projects.",
+    "title": "Let's build something",
+    "description": "Got a project in mind? I take on work of any scale — a new landing page, a full web app, a custom platform, or a focused sparring session on architecture.",
     "emailMe": "Send me an email",
     "copyright": "© {year} Dennis Diepolder. All rights reserved."
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has been moved. Let's get you back on track.",
+    "goHome": "Go home",
+    "goBlog": "Read the blog"
   }
 }
