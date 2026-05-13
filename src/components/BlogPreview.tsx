@@ -3,10 +3,11 @@ import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 
 const blogSlugs = [
+  "ai-bubble-and-the-valve",
+  "the-generalist-advantage",
   "why-ai-should-stay-a-tool",
-  "why-i-built-monti",
   "swiftcart-lessons",
-  "operations-to-engineering",
+  "why-i-built-monti",
 ] as const;
 
 export function BlogPreview() {
