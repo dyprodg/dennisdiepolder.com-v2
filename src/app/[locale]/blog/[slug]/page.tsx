@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 const siteUrl = "https://dennisdiepolder.com";
 
 const validSlugs = [
+  "ai-bubble-and-the-valve",
   "the-generalist-advantage",
   "why-ai-should-stay-a-tool",
   "why-i-built-monti",

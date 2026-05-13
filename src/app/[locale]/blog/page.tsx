@@ -50,6 +50,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const blogSlugs = [
+  "ai-bubble-and-the-valve",
   "the-generalist-advantage",
   "why-ai-should-stay-a-tool",
   "why-i-built-monti",
