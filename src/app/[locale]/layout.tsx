@@ -149,6 +149,7 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages({ locale });
+  const isDe = locale === "de";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -179,6 +180,80 @@ export default async function LocaleLayout({
     ],
   };
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: [
+      {
+        "@type": "Service",
+        name: isDe ? "Business-Landing-Page" : "Business Landing Page",
+        description: isDe
+          ? "Eine schnelle, moderne One-Pager-Website, die einen starken ersten Eindruck macht. Gebaut mit Next.js und optimiert für Conversions."
+          : "A fast, modern single-page site that makes a strong first impression. Built with Next.js and optimized for conversions.",
+        offers: { "@type": "Offer", price: "990", priceCurrency: "CHF" },
+      },
+      {
+        "@type": "Service",
+        name: isDe ? "Business-Web-Applikation" : "Business Web Application",
+        description: isDe
+          ? "Für KMUs und SaaS-MVPs, die mehr als eine Visitenkarten-Website brauchen — mit CMS, Authentifizierung und produktionsreifer Zahlungsabwicklung."
+          : "For SMEs and SaaS MVPs that need more than a brochure site — with a CMS, authentication, and production-grade payment processing.",
+        offers: { "@type": "Offer", price: "4990", priceCurrency: "CHF" },
+      },
+      {
+        "@type": "Service",
+        name: isDe ? "Custom Platform & Integrationen" : "Custom Platform & Integrations",
+        description: isDe
+          ? "Ein komplettes Business-Backbone — Echtzeitsysteme, individuelle Dashboards und massgeschneiderte Plattformen, wo Standard-Tools nicht reichen."
+          : "A complete business backbone — real-time systems, custom dashboards, and bespoke platforms where off-the-shelf tools fall short.",
+        offers: { "@type": "Offer", price: "14900", priceCurrency: "CHF" },
+      },
+    ],
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: isDe
+          ? "Arbeiten Sie mit internationalen Kunden?"
+          : "Do you work with international clients?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: isDe
+            ? "Ja, ich arbeite mit Kunden weltweit. Mein Fokus liegt auf der DACH-Region, aber Remote-Zusammenarbeit ist für alle Projekte möglich."
+            : "Yes, I work with clients worldwide. My focus is on the DACH region, but remote collaboration is possible for all projects.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: isDe
+          ? "Wie sieht ein typischer Projektzeitplan aus?"
+          : "What is your typical project timeline?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: isDe
+            ? "Kleinere Projekte dauern in der Regel 2–4 Wochen, grössere Plattformen 8–16 Wochen. Jedes Projekt beginnt mit einer detaillierten Planungsphase."
+            : "Smaller projects typically take 2–4 weeks, larger platforms 8–16 weeks. Every project starts with a detailed planning phase.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: isDe
+          ? "Bieten Sie Wartung nach dem Launch an?"
+          : "Do you offer maintenance after launch?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: isDe
+            ? "Ja, ich biete laufende Wartungs- und Support-Pakete an, damit Ihre Systeme sicher, aktuell und performant bleiben."
+            : "Yes, I offer ongoing maintenance and support packages to ensure your systems remain secure, up-to-date, and performant.",
+        },
+      },
+    ],
+  };
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
@@ -187,6 +262,14 @@ export default async function LocaleLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>

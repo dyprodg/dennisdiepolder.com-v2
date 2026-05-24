@@ -45,6 +45,7 @@
       "business": {
         "name": "Business-Web-Applikation",
         "price": "4.990",
+        "reason": "Bester Wert für wachsende SaaS",
         "description": "Für KMUs und SaaS-MVPs, die mehr als eine Visitenkarten-Website brauchen — mit CMS, Authentifizierung und produktionsreifer Zahlungsabwicklung.",
         "features": {
           "f1": "Mehrseitige App oder Dashboard",

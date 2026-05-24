@@ -22,7 +22,7 @@ export function Hero() {
             <p className="text-base text-zinc-500 dark:text-zinc-500 mb-8">
               {t("cta")}
             </p>
-            <div className="flex items-center gap-3 flex-wrap">
+            <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
               <a
                 href="#services"
                 className="flex items-center gap-2 px-5 py-2.5 rounded-md bg-accent-500 text-white text-sm font-medium hover:bg-accent-600 transition-colors"

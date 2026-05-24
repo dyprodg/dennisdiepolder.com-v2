@@ -43,8 +43,13 @@ export function Services() {
               }`}
             >
               {tier.featured && (
-                <div className="absolute -top-3 left-6 px-2 py-0.5 bg-accent-500 text-white text-xs font-mono rounded">
-                  {t("popular")}
+                <div className="absolute -top-3 left-6 flex items-center gap-2">
+                  <span className="px-2 py-0.5 bg-accent-500 text-white text-xs font-mono rounded">
+                    {t("popular")}
+                  </span>
+                  <span className="text-xs text-accent-600 dark:text-accent-400 font-mono hidden sm:inline">
+                    {t(`tiers.${tier.key}.reason`)}
+                  </span>
                 </div>
               )}
 
@@ -85,7 +90,7 @@ export function Services() {
               </ul>
 
               <a
-                href="mailto:info@dennisdiepolder.com?subject=Inquiry%20-%20{tier}"
+                href={`mailto:info@dennisdiepolder.com?subject=Inquiry - ${tier.key}`}
                 className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-md text-sm font-medium transition-colors ${
                   tier.featured
                     ? "bg-accent-500 text-white hover:bg-accent-600"

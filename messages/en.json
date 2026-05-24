@@ -45,6 +45,7 @@
       "business": {
         "name": "Business Web Application",
         "price": "4,990",
+        "reason": "Best value for growing SaaS",
         "description": "For SMEs and SaaS MVPs that need more than a brochure site — with a CMS, authentication, and production-grade payment processing.",
         "features": {
           "f1": "Multi-page app or dashboard",

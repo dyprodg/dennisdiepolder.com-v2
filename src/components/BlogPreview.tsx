@@ -28,7 +28,7 @@ export function BlogPreview() {
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="font-mono text-xs text-zinc-500 mb-2">
+                  <p className="font-mono text-sm text-zinc-600 dark:text-zinc-400 mb-2">
                     {t(`posts.${slug}.date`)}
                   </p>
                   <h3 className="font-mono text-lg font-semibold mb-2 group-hover:text-accent-500 transition-colors">

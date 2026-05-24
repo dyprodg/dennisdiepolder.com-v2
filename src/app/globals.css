@@ -197,6 +197,13 @@ body {
   color: #fafafa;
 }
 
+@media (max-width: 767px) {
+  .blob-3,
+  .blob-4 {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .blob {
     animation: none !important;

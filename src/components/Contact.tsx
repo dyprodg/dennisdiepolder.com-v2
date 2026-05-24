@@ -6,7 +6,7 @@ export function Contact() {
   const year = new Date().getFullYear();
 
   return (
-    <section id="contact" className="py-24 border-t border-zinc-200 dark:border-zinc-800">
+    <footer id="contact" className="py-24 border-t border-zinc-200 dark:border-zinc-800">
       <div className="max-w-5xl mx-auto px-6">
         <h2 className="font-mono text-2xl sm:text-3xl font-bold mb-4">
           {t("title")}
@@ -47,6 +47,6 @@ export function Contact() {
           {t("copyright", { year: year.toString() })}
         </p>
       </div>
-    </section>
+    </footer>
   );
 }
