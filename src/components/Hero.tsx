@@ -61,7 +61,7 @@ export function Hero() {
 
           <div className="shrink-0">
             <Image
-              src="/dennisdiepolder.jpeg"
+              src="/dennisdiepolder.jpg"
               alt="Dennis Diepolder"
               width={220}
               height={220}

@@ -41,7 +41,7 @@ export async function generateMetadata(props: {
     : "Software & Platform Engineer based in Switzerland. I build high-performance systems, real-time monitoring, e-commerce platforms, and custom web applications for businesses across the DACH region.";
 
   const canonical = `${siteUrl}/${locale}`;
-  const ogImage = `${siteUrl}/dennisdiepolder.jpeg`;
+  const ogImage = `${siteUrl}/dennisdiepolder.jpg`;
 
   return {
     metadataBase: new URL(siteUrl),
@@ -156,7 +156,7 @@ export default async function LocaleLayout({
     "@type": "Person",
     name: "Dennis Diepolder",
     jobTitle: "Software & Platform Engineer",
-    image: `${siteUrl}/dennisdiepolder.jpeg`,
+    image: `${siteUrl}/dennisdiepolder.jpg`,
     url: siteUrl,
     email: "info@dennisdiepolder.com",
     address: {

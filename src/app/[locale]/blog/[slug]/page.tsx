@@ -37,7 +37,7 @@ export async function generateMetadata(props: {
   const description = t(`posts.${slug}.excerpt`);
   const date = t(`posts.${slug}.date`);
   const canonical = `${siteUrl}/${locale}/blog/${slug}`;
-  const ogImage = `${siteUrl}/dennisdiepolder.jpeg`;
+  const ogImage = `${siteUrl}/dennisdiepolder.jpg`;
 
   return {
     title,
@@ -124,7 +124,7 @@ function BlogPostContent({ slug, locale }: { slug: Slug; locale: string }) {
       "@type": "WebPage",
       "@id": `${siteUrl}/${locale}/blog/${slug}`,
     },
-    image: `${siteUrl}/dennisdiepolder.jpeg`,
+    image: `${siteUrl}/dennisdiepolder.jpg`,
     url: `${siteUrl}/${locale}/blog/${slug}`,
   };
 
